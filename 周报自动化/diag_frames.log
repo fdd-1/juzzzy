@@ -1,0 +1,148 @@
+
+=== 诊断 frame 结构 ===
+context.pages: 1
+page.frames count: 16
+
+  frame[0] url=https://bi.61info.cn/smartbi/vision/index.jsp
+    title: Smartbi Insight
+    bodyChildren: 10
+    aliasSpanCount: 8
+    aliasSpanSamples: ['日期*', '做工开始时间*', '做工结束时间*', '区域等级', '大区', '海外思维团队', '思维LP小组', 'LP个人']
+    inputCount: 40
+    comboBtnCount: 7
+    iframeCount: 13
+
+  frame[1] url=about:blank
+    title: 
+    bodyChildren: 0
+    aliasSpanCount: 0
+    aliasSpanSamples: []
+    inputCount: 0
+    comboBtnCount: 0
+    iframeCount: 0
+
+  frame[2] url=about:blank
+    title: 
+    bodyChildren: 0
+    aliasSpanCount: 0
+    aliasSpanSamples: []
+    inputCount: 0
+    comboBtnCount: 0
+    iframeCount: 0
+
+  frame[3] url=about:blank
+    title: 
+    bodyChildren: 0
+    aliasSpanCount: 0
+    aliasSpanSamples: []
+    inputCount: 0
+    comboBtnCount: 0
+    iframeCount: 0
+
+  frame[4] url=https://bi.61info.cn/smartbi/smartbix/?integrated=true&showheader=false&l=zh_CN&loadingUUID=CBAB1688A6100001706C850D1C70
+    title: Smartbi
+    bodyChildren: 7
+    aliasSpanCount: 0
+    aliasSpanSamples: []
+    inputCount: 0
+    comboBtnCount: 0
+    iframeCount: 1
+
+  frame[5] url=https://bi.61info.cn/smartbi/smartbix/?integrated=true&showheader=false&l=zh_CN&loadingUUID=CBAB1688A7E0000146C61BC9D250
+    title: Smartbi
+    bodyChildren: 7
+    aliasSpanCount: 0
+    aliasSpanSamples: []
+    inputCount: 0
+    comboBtnCount: 0
+    iframeCount: 1
+
+  frame[6] url=about:blank
+    title: 
+    bodyChildren: 0
+    aliasSpanCount: 0
+    aliasSpanSamples: []
+    inputCount: 0
+    comboBtnCount: 0
+    iframeCount: 0
+
+  frame[7] url=about:blank
+    title: 
+    bodyChildren: 1
+    aliasSpanCount: 0
+    aliasSpanSamples: []
+    inputCount: 0
+    comboBtnCount: 0
+    iframeCount: 0
+
+  frame[8] url=about:blank
+    title: 
+    bodyChildren: 1
+    aliasSpanCount: 0
+    aliasSpanSamples: []
+    inputCount: 0
+    comboBtnCount: 0
+    iframeCount: 0
+
+  frame[9] url=about:blank
+    title: 
+    bodyChildren: 1
+    aliasSpanCount: 0
+    aliasSpanSamples: []
+    inputCount: 0
+    comboBtnCount: 0
+    iframeCount: 0
+
+  frame[10] url=about:blank
+    title: 
+    bodyChildren: 1
+    aliasSpanCount: 0
+    aliasSpanSamples: []
+    inputCount: 0
+    comboBtnCount: 0
+    iframeCount: 0
+
+  frame[11] url=about:blank
+    title: 
+    bodyChildren: 1
+    aliasSpanCount: 0
+    aliasSpanSamples: []
+    inputCount: 0
+    comboBtnCount: 0
+    iframeCount: 0
+
+  frame[12] url=about:blank
+    title: 
+    bodyChildren: 0
+    aliasSpanCount: 0
+    aliasSpanSamples: []
+    inputCount: 0
+    comboBtnCount: 0
+    iframeCount: 0
+
+  frame[13] url=about:blank
+    title: 
+    bodyChildren: 0
+    aliasSpanCount: 0
+    aliasSpanSamples: []
+    inputCount: 0
+    comboBtnCount: 0
+    iframeCount: 0
+
+  frame[14] url=https://bi.61info.cn/smartbi/vision/ssreport/htmls/I2c928087019e3c7a3c7aba9e019e48b5f5e04746/sheet_0_0.htm?t=17793363497
+    title: 
+    bodyChildren: 11
+    aliasSpanCount: 0
+    aliasSpanSamples: []
+    inputCount: 0
+    comboBtnCount: 0
+    iframeCount: 0
+
+  frame[15] url=about:blank
+    title: 
+    bodyChildren: 0
+    aliasSpanCount: 0
+    aliasSpanSamples: []
+    inputCount: 0
+    comboBtnCount: 0
+    iframeCount: 0

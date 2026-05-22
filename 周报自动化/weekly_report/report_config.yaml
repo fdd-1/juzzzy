@@ -1,0 +1,202 @@
+# 周报自动化配置 - 服务模块
+# 数据源：飞书电子表格（嵌入在周报文档中）
+# 输出：新建飞书文档
+
+meta:
+  module_name: "服务"
+  module_index: 4
+  template_doc: "YTOjdq8VaoRYwIxnuETci0NqnYC"  # 参考周报文档 token
+  output_folder: ""  # 生成周报的目标文件夹 token（需配置）
+
+sections:
+  - id: service_tracking
+    title: "4.1 服务指标跟进&语义分析"
+    sheets:
+      current: "d4AdI3"
+      previous: "VHAD6x"
+    key_col: "团队"
+    lp_col: "LP名称"
+    metrics:
+      - name: "首通跟进率"
+        fields: ["跟进数", "新生数"]
+        calc: "ratio"  # 跟进数/新生数
+        target: 0.95
+        alert_threshold: 0.90
+      - name: "首通及时跟进率"
+        fields: ["及时跟进数", "新生数"]
+        calc: "ratio"
+        target: 0.95
+        alert_threshold: 0.90
+      - name: "企微绑定率"
+        fields: ["企微绑定数", "新生数"]
+        calc: "ratio"
+        target: null
+      - name: "语义点执行率加和"
+        fields: ["执行率加和"]
+        calc: "direct"
+        target: null
+      - name: "添加企微/WS/Line执行率"
+        fields: ["邀请添加企微/WS/Line执行率"]
+        calc: "direct"
+        target: null
+      - name: "转介绍执行率"
+        fields: ["转介绍执行率"]
+        calc: "direct"
+        target: null
+    conclusion_template: |
+      跟进：
+      首通：总体跟进率{total_follow_rate}；及时跟进率{timely_rate}，{target_status}
+      {anomaly_groups}
+      ——企微绑定率整体为{bindrate}，较上周{bindrate_change}
+      {bind_anomaly}
+      ——秒挂占比为{hangup_rate}
+      首课：总体跟进率{first_class_rate}，及时跟进率{first_class_timely}，{first_class_target}
+      {first_class_anomaly}
+      首专：总体跟进率{first_special_rate}，及时跟进率{first_special_timely}，{first_special_target}
+      {first_special_anomaly}
+      语义分析：
+      ——添加企微/WS/Line的执行率为{wecom_exec_rate}
+      —— 一家多娃问询&转介绍执行率为{multi_child_rate}/{referral_rate}
+      {semantic_anomaly}
+
+  - id: ai_learning_assistant
+    title: "4.1 AI学情助手跟进"
+    sheets:
+      current: "9MCwuT"
+      previous: "6I3KJ4"
+    key_col: "LP小组"
+    lp_col: "班主任姓名"
+    metrics:
+      - name: "任务总数"
+        fields: ["任务总数"]
+        calc: "direct"
+      - name: "覆盖学员数"
+        fields: ["覆盖学员数"]
+        calc: "direct"
+      - name: "干预成功率"
+        fields: ["干预成功率"]
+        calc: "direct"
+
+  - id: class_intention
+    title: "4.2 组班多意向占比"
+    sheets:
+      current: "sppHqB"
+      previous: "hKygON"
+    key_col: "团队/小组"
+    lp_col: "LP"
+    metrics:
+      - name: "多意向占比"
+        fields: ["多意向占比"]
+        calc: "direct"
+        target: 0.50
+    conclusion_template: |
+      整体多意向占比{multi_intention_rate}，{target_status}
+
+  - id: group_message
+    title: "4.3 群发跟进"
+    sheets:
+      current: "CAzNCO"
+      previous: "2yI0J4"
+    key_col: "小组"
+    lp_col: "负责人/LP姓名"
+    metrics:
+      - name: "营销类群发消息数"
+        fields: ["群发消息数"]
+        calc: "direct"
+      - name: "营销类环比"
+        fields: ["环比上月"]
+        calc: "direct"
+    conclusion_template: |
+      营销类lp群发消息总数{marketing_total}条，相比上周{change_direction}{change_amount}条
+
+  - id: suspension_wakeup
+    title: "4.4 停课唤醒"
+    sheets:
+      current: "DOmxgb"
+      previous: "QWO2jD"
+    key_col: "lp组别"
+    lp_col: "LP个人"
+    metrics:
+      - name: "停课占比"
+        fields: ["停课占比"]
+        calc: "direct"
+      - name: "停课90天内唤醒率"
+        fields: ["唤醒率"]
+        calc: "direct"
+      - name: "停课唤醒跟进率"
+        fields: ["外呼（系统+企微）"]
+        calc: "direct"
+    conclusion_template: |
+      当前整体停课占比{suspension_rate}
+      整体停课90天内唤醒率达{wakeup_rate}
+      整体停课唤醒跟进为{follow_rate}
+
+  - id: service_monthly
+    title: "4.5 服务月跟进"
+    sheets:
+      current: "giimtg"
+      previous: "91rs0h"
+    semantic_sheet: "D3ggnb"
+    key_col: "小组"
+    lp_col: "LP"
+    metrics:
+      - name: "外呼跟进率"
+        fields: ["外呼跟进率"]
+        calc: "direct"
+        target: 0.85
+      - name: "综合有效跟进率"
+        fields: ["综合有效跟进率"]
+        calc: "direct"
+        target: 0.30
+    conclusion_template: |
+      服务池跟进：
+      外呼覆盖率{call_coverage}，综合有效跟进达{effective_rate}
+      {anomaly_groups}
+      语义分析：
+      服务池语义点加和执行为{semantic_sum}，{semantic_target_status}
+      {semantic_anomaly}
+
+  - id: system_call_wechat
+    title: "4.6 系统电话外呼&微信回复监控"
+    sheets:
+      call_current: "YW2wBv"
+      call_previous: "Af0nQC"
+      wechat_current: "AM0DJC"
+      wechat_previous: "kV3KUn"
+    key_col: "小组"
+    lp_col: "LP姓名"
+    metrics:
+      - name: "外呼覆盖率"
+        fields: ["覆盖率"]
+        calc: "direct"
+      - name: "生均呼次"
+        fields: ["生均呼次"]
+        calc: "direct"
+      - name: "回复比"
+        fields: ["回复比"]
+        calc: "direct"
+    conclusion_template: |
+      整体系统外呼：
+      全部活跃学员的外呼覆盖率为{coverage}月环比{coverage_change}，生均呼次{avg_calls}月环比{calls_change}
+      整体微信发送&回复比：
+      整体群发回复比为{reply_ratio}
+
+  - id: renewal_refund
+    title: "4.7 续费退费"
+    sheets:
+      gmv: "hkTXIP"
+      refund_tracking: "oSsDsn"
+      not_retained: "AOuxsd"
+      commission: "M3c3wN"
+    key_col: "小组"
+    metrics:
+      - name: "二挽外呼跟进率"
+        fields: ["外呼跟进率"]
+        calc: "direct"
+      - name: "及时跟进率"
+        fields: ["及时跟进率"]
+        calc: "direct"
+    conclusion_template: |
+      {date_range}共产生退费订单{refund_count}单(上周新增{new_refund}单）
+      ——整体二挽外呼跟进率为{retain_rate}，及时跟进率为{timely_rate}
+      ——{low_groups}及时跟进率落后

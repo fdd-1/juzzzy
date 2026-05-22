@@ -1,0 +1,2423 @@
+{
+  "海外思维服务SOP执行情况": {
+    "identity": {
+      "name": "海外思维服务SOP执行情况_周维度",
+      "path": [
+        "海外直播业务线",
+        "海外后端",
+        "思维-后端",
+        "服务",
+        "语义分析_服务",
+        "海外思维服务SOP执行情况_周维度"
+      ],
+      "type": "report",
+      "business_domain": "",
+      "status": "unknown",
+      "authority_level": "unknown"
+    },
+    "filters": [
+      {
+        "index": 15,
+        "label": "日期",
+        "control_type": "date",
+        "required": true,
+        "default_value": "2026-05-18",
+        "semantic": "date",
+        "business_meaning": "",
+        "options_sample": [],
+        "excel_parameter_label": "小组",
+        "excel_parameter_value": "负责人"
+      },
+      {
+        "index": 17,
+        "label": "做工开始时间_周维度",
+        "control_type": "date",
+        "required": true,
+        "default_value": "2026-05-18",
+        "semantic": "start_date",
+        "business_meaning": "",
+        "options_sample": [],
+        "excel_parameter_label": "执行率",
+        "excel_parameter_value": "满意"
+      },
+      {
+        "index": 19,
+        "label": "做工结束时间_周维度",
+        "control_type": "date",
+        "required": true,
+        "default_value": "2026-05-24",
+        "semantic": "end_date",
+        "business_meaning": "",
+        "options_sample": [],
+        "excel_parameter_label": "部分满意",
+        "excel_parameter_value": "不满意"
+      },
+      {
+        "index": 21,
+        "label": "区域等级",
+        "control_type": "combobox",
+        "required": false,
+        "default_value": "全部",
+        "semantic": "region",
+        "business_meaning": "",
+        "options_sample": [
+          "[全选]",
+          "北美",
+          "欧洲",
+          "澳洲",
+          "亚洲",
+          "港澳",
+          "台湾",
+          "海外其他",
+          "国内"
+        ],
+        "excel_parameter_label": "没时间",
+        "excel_parameter_value": "孩子身体原因"
+      },
+      {
+        "index": 23,
+        "label": "大区",
+        "control_type": "combobox",
+        "required": false,
+        "default_value": "海外教学服务部",
+        "semantic": "",
+        "business_meaning": "",
+        "options_sample": [],
+        "excel_parameter_label": "课时转移",
+        "excel_parameter_value": "没有合适班级"
+      },
+      {
+        "index": 25,
+        "label": "思维LP小组",
+        "control_type": "combobox",
+        "required": false,
+        "default_value": "全部",
+        "semantic": "team",
+        "business_meaning": "",
+        "options_sample": [],
+        "excel_parameter_label": "海外团队",
+        "excel_parameter_value": "刘亚"
+      },
+      {
+        "index": 27,
+        "label": "LP个人",
+        "control_type": "param",
+        "required": false,
+        "default_value": "284.0",
+        "semantic": "",
+        "business_meaning": "",
+        "options_sample": [],
+        "excel_parameter_label": "总计",
+        "excel_parameter_value": "284.0"
+      }
+    ],
+    "export": {
+      "supported": true,
+      "entry_type": "",
+      "mode": "headless_serial",
+      "template_download_only": false,
+      "last_status": "pass",
+      "last_file_bytes": 25840,
+      "last_file": "E:\\Projects\\active\\bi\\reports\\skill-test\\profile-full\\full_filters_20260517\\0218_94c199a73e_海外思维服务SOP执行情况_周维度\\海外思维服务SOP执行情况_周维度_2026-05-01_2026-05-16_2026-05-16_073127.xlsx",
+      "last_error": "",
+      "last_log": "E:\\Projects\\active\\bi\\reports\\skill-test\\profile-full\\full_filters_20260517\\0218_94c199a73e_海外思维服务SOP执行情况_周维度\\console.log",
+      "audit_log": "E:\\Projects\\active\\bi\\reports\\skill-test\\filter-learning\\overnight-20260518_014804-cases_worker_01\\20260518_044643\\07_海外思维服务SOP执行情况_周维度\\console.log",
+      "dom_log": "",
+      "updated_at": "2026-05-17T07:31:51",
+      "open_supported": true,
+      "dom_profile_available": false
+    },
+    "schema": {
+      "sheet": "Sheet1",
+      "header_row": 8,
+      "column_count": 30,
+      "columns": [
+        {
+          "index": 2,
+          "name": "港澳1组",
+          "normalized_name": "港澳1组",
+          "semantic": "",
+          "inferred_type": "string",
+          "sample_values": [
+            "港澳2组",
+            "港澳组",
+            "美澳1组"
+          ],
+          "business_meaning": ""
+        },
+        {
+          "index": 3,
+          "name": "叶素姜",
+          "normalized_name": "叶素姜",
+          "semantic": "",
+          "inferred_type": "string",
+          "sample_values": [
+            "向梦清",
+            "谢昌馥",
+            "刘洋"
+          ],
+          "business_meaning": ""
+        },
+        {
+          "index": 4,
+          "name": "总计",
+          "normalized_name": "总计",
+          "semantic": "",
+          "inferred_type": "string",
+          "sample_values": [
+            "总计",
+            "总计",
+            "总计"
+          ],
+          "business_meaning": ""
+        },
+        {
+          "index": 5,
+          "name": "48.0",
+          "normalized_name": "48_0",
+          "semantic": "",
+          "inferred_type": "number",
+          "sample_values": [
+            "45.0",
+            "40.0",
+            "17.0"
+          ],
+          "business_meaning": ""
+        },
+        {
+          "index": 6,
+          "name": "0.3958333333333333",
+          "normalized_name": "0_3958333333333333",
+          "semantic": "",
+          "inferred_type": "number",
+          "sample_values": [
+            "0.8",
+            "0.425",
+            "0.058823529411764705"
+          ],
+          "business_meaning": ""
+        },
+        {
+          "index": 7,
+          "name": "0.3958333333333333",
+          "normalized_name": "0_3958333333333333",
+          "semantic": "",
+          "inferred_type": "number",
+          "sample_values": [
+            "0.7555555555555555",
+            "0.35",
+            "0.35294117647058826"
+          ],
+          "business_meaning": ""
+        },
+        {
+          "index": 8,
+          "name": "0.8958333333333334",
+          "normalized_name": "0_8958333333333334",
+          "semantic": "",
+          "inferred_type": "number",
+          "sample_values": [
+            "0.8222222222222222",
+            "0.725",
+            "0.8823529411764706"
+          ],
+          "business_meaning": ""
+        },
+        {
+          "index": 9,
+          "name": "0.8333333333333334",
+          "normalized_name": "0_8333333333333334",
+          "semantic": "",
+          "inferred_type": "number",
+          "sample_values": [
+            "0.9111111111111111",
+            "0.825",
+            "0.8823529411764706"
+          ],
+          "business_meaning": ""
+        },
+        {
+          "index": 10,
+          "name": "0.8125",
+          "normalized_name": "0_8125",
+          "semantic": "",
+          "inferred_type": "number",
+          "sample_values": [
+            "0.7333333333333333",
+            "0.6",
+            "0.7058823529411765"
+          ],
+          "business_meaning": ""
+        },
+        {
+          "index": 11,
+          "name": "0.6666666666666666",
+          "normalized_name": "0_6666666666666666",
+          "semantic": "",
+          "inferred_type": "number",
+          "sample_values": [
+            "0.4888888888888889",
+            "0.475",
+            "0.17647058823529413"
+          ],
+          "business_meaning": ""
+        },
+        {
+          "index": 12,
+          "name": "0.6458333333333334",
+          "normalized_name": "0_6458333333333334",
+          "semantic": "",
+          "inferred_type": "number",
+          "sample_values": [
+            "0.6666666666666666",
+            "0.7",
+            "0.6470588235294118"
+          ],
+          "business_meaning": ""
+        },
+        {
+          "index": 13,
+          "name": "0.7291666666666666",
+          "normalized_name": "0_7291666666666666",
+          "semantic": "",
+          "inferred_type": "number",
+          "sample_values": [
+            "0.7111111111111111",
+            "0.7",
+            "0.7058823529411765"
+          ],
+          "business_meaning": ""
+        },
+        {
+          "index": 14,
+          "name": "0.6842105263157895",
+          "normalized_name": "0_6842105263157895",
+          "semantic": "",
+          "inferred_type": "number",
+          "sample_values": [
+            "0.7037037037037037",
+            "0.5121951219512195",
+            "0.6428571428571429"
+          ],
+          "business_meaning": ""
+        },
+        {
+          "index": 15,
+          "name": "0.47368421052631576",
+          "normalized_name": "0_47368421052631576",
+          "semantic": "",
+          "inferred_type": "number",
+          "sample_values": [
+            "0.3333333333333333",
+            "0.6097560975609756",
+            "0.5"
+          ],
+          "business_meaning": ""
+        },
+        {
+          "index": 16,
+          "name": "0.5789473684210527",
+          "normalized_name": "0_5789473684210527",
+          "semantic": "",
+          "inferred_type": "number",
+          "sample_values": [
+            "0.6296296296296297",
+            "0.5121951219512195",
+            "0.5"
+          ],
+          "business_meaning": ""
+        },
+        {
+          "index": 17,
+          "name": "0.6363636363636364",
+          "normalized_name": "0_6363636363636364",
+          "semantic": "",
+          "inferred_type": "number",
+          "sample_values": [
+            "0.47058823529411764",
+            "0.5238095238095238",
+            "0.5714285714285714"
+          ],
+          "business_meaning": ""
+        },
+        {
+          "index": 18,
+          "name": "0.3181818181818182",
+          "normalized_name": "0_3181818181818182",
+          "semantic": "",
+          "inferred_type": "number",
+          "sample_values": [
+            "0.47058823529411764",
+            "0.5238095238095238",
+            "0.42857142857142855"
+          ],
+          "business_meaning": ""
+        },
+        {
+          "index": 19,
+          "name": "0.045454545454545456",
+          "normalized_name": "0_045454545454545456",
+          "semantic": "",
+          "inferred_type": "number",
+          "sample_values": [
+            "0.058823529411764705",
+            "0",
+            "0.14285714285714285"
+          ],
+          "business_meaning": ""
+        },
+        {
+          "index": 20,
+          "name": "0.10526315789473684",
+          "normalized_name": "0_10526315789473684",
+          "semantic": "",
+          "inferred_type": "number",
+          "sample_values": [
+            "0.1111111111111111",
+            "0.14634146341463414",
+            "0"
+          ],
+          "business_meaning": ""
+        },
+        {
+          "index": 21,
+          "name": "0.5263157894736842",
+          "normalized_name": "0_5263157894736842",
+          "semantic": "",
+          "inferred_type": "number",
+          "sample_values": [
+            "0.2962962962962963",
+            "0.5121951219512195",
+            "0.35714285714285715"
+          ],
+          "business_meaning": ""
+        },
+        {
+          "index": 22,
+          "name": "0.13157894736842105",
+          "normalized_name": "0_13157894736842105",
+          "semantic": "",
+          "inferred_type": "number",
+          "sample_values": [
+            "0.07407407407407407",
+            "0.07317073170731707",
+            "0.07142857142857142"
+          ],
+          "business_meaning": ""
+        },
+        {
+          "index": 23,
+          "name": "13.0",
+          "normalized_name": "13_0",
+          "semantic": "",
+          "inferred_type": "number",
+          "sample_values": [
+            "9.0",
+            "7.0",
+            "13.0"
+          ],
+          "business_meaning": ""
+        },
+        {
+          "index": 24,
+          "name": "0.3076923076923077",
+          "normalized_name": "0_3076923076923077",
+          "semantic": "",
+          "inferred_type": "number",
+          "sample_values": [
+            "0.1111111111111111",
+            "0.42857142857142855",
+            "0.5384615384615384"
+          ],
+          "business_meaning": ""
+        },
+        {
+          "index": 25,
+          "name": "0.46153846153846156",
+          "normalized_name": "0_46153846153846156",
+          "semantic": "",
+          "inferred_type": "number",
+          "sample_values": [
+            "0.3333333333333333",
+            "0.14285714285714285",
+            "0.23076923076923078"
+          ],
+          "business_meaning": ""
+        },
+        {
+          "index": 26,
+          "name": "0.15384615384615385",
+          "normalized_name": "0_15384615384615385",
+          "semantic": "",
+          "inferred_type": "number",
+          "sample_values": [
+            "0",
+            "0.14285714285714285",
+            "0"
+          ],
+          "business_meaning": ""
+        },
+        {
+          "index": 27,
+          "name": "0.07692307692307693",
+          "normalized_name": "0_07692307692307693",
+          "semantic": "",
+          "inferred_type": "number",
+          "sample_values": [
+            "0",
+            "0",
+            "0"
+          ],
+          "business_meaning": ""
+        },
+        {
+          "index": 28,
+          "name": "0.15384615384615385",
+          "normalized_name": "0_15384615384615385",
+          "semantic": "",
+          "inferred_type": "number",
+          "sample_values": [
+            "0.1111111111111111",
+            "0",
+            "0.07692307692307693"
+          ],
+          "business_meaning": ""
+        },
+        {
+          "index": 29,
+          "name": "0",
+          "normalized_name": "0",
+          "semantic": "",
+          "inferred_type": "number",
+          "sample_values": [
+            "0",
+            "0",
+            "0.07692307692307693"
+          ],
+          "business_meaning": ""
+        },
+        {
+          "index": 30,
+          "name": "0",
+          "normalized_name": "0",
+          "semantic": "",
+          "inferred_type": "number",
+          "sample_values": [
+            "0.3333333333333333",
+            "0",
+            "0.23076923076923078"
+          ],
+          "business_meaning": ""
+        },
+        {
+          "index": 31,
+          "name": "0.23076923076923078",
+          "normalized_name": "0_23076923076923078",
+          "semantic": "",
+          "inferred_type": "number",
+          "sample_values": [
+            "0.3333333333333333",
+            "0.2857142857142857",
+            "0.07692307692307693"
+          ],
+          "business_meaning": ""
+        }
+      ],
+      "schema_hash": "4830aca2534e2a3f",
+      "sample_row_count": 20,
+      "parameters": [
+        {
+          "label": "小组",
+          "value": "负责人",
+          "semantic": "team"
+        },
+        {
+          "label": "执行率",
+          "value": "满意",
+          "semantic": ""
+        },
+        {
+          "label": "部分满意",
+          "value": "不满意",
+          "semantic": ""
+        },
+        {
+          "label": "没时间",
+          "value": "孩子身体原因",
+          "semantic": "date"
+        },
+        {
+          "label": "课时转移",
+          "value": "没有合适班级",
+          "semantic": ""
+        },
+        {
+          "label": "海外团队",
+          "value": "刘亚",
+          "semantic": "team"
+        },
+        {
+          "label": "总计",
+          "value": "284.0",
+          "semantic": ""
+        },
+        {
+          "label": "台湾组",
+          "value": "李文韬",
+          "semantic": "team"
+        },
+        {
+          "label": "总计",
+          "value": "70.0",
+          "semantic": ""
+        }
+      ]
+    },
+    "data_quality": {
+      "empty_file": false,
+      "column_count": 30,
+      "sample_row_count": 20,
+      "schema_hash": "4830aca2534e2a3f",
+      "schema_source": "excel",
+      "row_count_text": "",
+      "duplicate_columns": [
+        "0",
+        "0.15384615384615385",
+        "0.3958333333333333"
+      ],
+      "filter_parameter_mismatches": [
+        {
+          "filter_label": "日期",
+          "ui_default_value": "2026-05-18",
+          "excel_parameter_label": "小组",
+          "excel_parameter_value": "负责人"
+        },
+        {
+          "filter_label": "做工开始时间_周维度",
+          "ui_default_value": "2026-05-18",
+          "excel_parameter_label": "执行率",
+          "excel_parameter_value": "满意"
+        },
+        {
+          "filter_label": "做工结束时间_周维度",
+          "ui_default_value": "2026-05-24",
+          "excel_parameter_label": "部分满意",
+          "excel_parameter_value": "不满意"
+        },
+        {
+          "filter_label": "区域等级",
+          "ui_default_value": "全部",
+          "excel_parameter_label": "没时间",
+          "excel_parameter_value": "孩子身体原因"
+        },
+        {
+          "filter_label": "大区",
+          "ui_default_value": "海外教学服务部",
+          "excel_parameter_label": "课时转移",
+          "excel_parameter_value": "没有合适班级"
+        },
+        {
+          "filter_label": "思维LP小组",
+          "ui_default_value": "全部",
+          "excel_parameter_label": "海外团队",
+          "excel_parameter_value": "刘亚"
+        }
+      ],
+      "filter_change_count": 0,
+      "filter_issues": []
+    },
+    "business": {
+      "recommended_use": "",
+      "not_recommended_for": [],
+      "owner": "",
+      "refresh_frequency": "",
+      "metric_notes": "",
+      "known_caveats": []
+    }
+  },
+  "海外思维学管服务指标统计表": {
+    "identity": {
+      "name": "海外思维学管服务指标统计表",
+      "path": [
+        "海外直播业务线",
+        "海外后端",
+        "思维-后端",
+        "服务",
+        "首课",
+        "海外思维学管服务指标统计表"
+      ],
+      "type": "report",
+      "business_domain": "",
+      "status": "unknown",
+      "authority_level": "unknown"
+    },
+    "filters": [
+      {
+        "index": 15,
+        "label": "开始日期",
+        "control_type": "date",
+        "required": true,
+        "default_value": "2026-05-01",
+        "semantic": "start_date",
+        "business_meaning": "",
+        "options_sample": [],
+        "requested_value": "2026-05-01",
+        "after_value": "2026-05-01",
+        "changed": false,
+        "change_mode": "explicit"
+      },
+      {
+        "index": 17,
+        "label": "结束时间",
+        "control_type": "date",
+        "required": true,
+        "default_value": "2026-05-19 00:00:00",
+        "semantic": "end_date",
+        "business_meaning": "",
+        "options_sample": [],
+        "requested_value": "2026-05-16 23:59:59",
+        "after_value": "2026-05-16 23:59:59",
+        "changed": true,
+        "change_mode": "explicit"
+      },
+      {
+        "index": 19,
+        "label": "区域等级",
+        "control_type": "combobox",
+        "required": false,
+        "default_value": "全部",
+        "semantic": "region",
+        "business_meaning": "",
+        "options_sample": [
+          "[全选]",
+          "北美",
+          "欧洲",
+          "澳洲",
+          "亚洲",
+          "港澳",
+          "台湾",
+          "海外其他",
+          "国内"
+        ]
+      },
+      {
+        "index": 21,
+        "label": "LP做工开始时间",
+        "control_type": "date",
+        "required": true,
+        "default_value": "2026-05-01",
+        "semantic": "start_date",
+        "business_meaning": "",
+        "options_sample": [],
+        "requested_value": "2026-05-01",
+        "after_value": "2026-05-01",
+        "changed": false,
+        "change_mode": "explicit"
+      },
+      {
+        "index": 23,
+        "label": "LP做工结束时间",
+        "control_type": "date",
+        "required": true,
+        "default_value": "2026-05-19",
+        "semantic": "end_date",
+        "business_meaning": "",
+        "options_sample": [],
+        "requested_value": "2026-05-16",
+        "after_value": "2026-05-16",
+        "changed": true,
+        "change_mode": "explicit"
+      }
+    ],
+    "export": {
+      "supported": true,
+      "entry_type": "",
+      "mode": "headless_serial",
+      "template_download_only": false,
+      "last_status": "pass",
+      "last_file_bytes": 58914,
+      "last_file": "E:\\Projects\\active\\bi\\reports\\skill-test\\kb_route_validation_20260519\\03_lp_service_metrics\\海外思维学管服务指标统计表_2026-05-16 23-59-59_2026-05-16_004036.xlsx",
+      "last_error": "",
+      "last_log": "E:\\Projects\\active\\bi\\reports\\skill-test\\kb_route_validation_20260519\\03_lp_service_metrics\\console.log",
+      "audit_log": "E:\\Projects\\active\\bi\\reports\\skill-test\\kb_route_validation_20260519\\03_lp_service_metrics\\console.log",
+      "dom_log": "",
+      "updated_at": "2026-05-19T00:40:59",
+      "open_supported": true,
+      "dom_profile_available": false
+    },
+    "schema": {
+      "sheet": "新建报表",
+      "header_row": 2,
+      "column_count": 61,
+      "columns": [
+        {
+          "index": 2,
+          "name": "团队",
+          "normalized_name": "团队",
+          "semantic": "",
+          "inferred_type": "string",
+          "sample_values": [
+            "海外团队",
+            "台湾组",
+            "港澳1组"
+          ],
+          "business_meaning": ""
+        },
+        {
+          "index": 3,
+          "name": "LP名称",
+          "normalized_name": "LP名称",
+          "semantic": "teacher",
+          "inferred_type": "string",
+          "sample_values": [
+            "总计",
+            "总计",
+            "总计"
+          ],
+          "business_meaning": ""
+        },
+        {
+          "index": 4,
+          "name": "本月排课-待上课数",
+          "normalized_name": "本月排课_待上课数",
+          "semantic": "",
+          "inferred_type": "number",
+          "sample_values": [
+            "91.0",
+            "94530.0",
+            "4936.0"
+          ],
+          "business_meaning": ""
+        },
+        {
+          "index": 5,
+          "name": "预习数",
+          "normalized_name": "预习数",
+          "semantic": "",
+          "inferred_type": "number",
+          "sample_values": [
+            "73.0",
+            "70174.0",
+            "3613.0"
+          ],
+          "business_meaning": ""
+        },
+        {
+          "index": 6,
+          "name": "总约课数",
+          "normalized_name": "总约课数",
+          "semantic": "",
+          "inferred_type": "number",
+          "sample_values": [
+            "85.0",
+            "87795.0",
+            "4367.0"
+          ],
+          "business_meaning": ""
+        },
+        {
+          "index": 7,
+          "name": "总完课数",
+          "normalized_name": "总完课数",
+          "semantic": "",
+          "inferred_type": "number",
+          "sample_values": [
+            "72.0",
+            "79764.0",
+            "3860.0"
+          ],
+          "business_meaning": ""
+        },
+        {
+          "index": 8,
+          "name": "一次完课数",
+          "normalized_name": "一次完课数",
+          "semantic": "",
+          "inferred_type": "number",
+          "sample_values": [
+            "79.0",
+            "90177.0",
+            "4454.0"
+          ],
+          "business_meaning": ""
+        },
+        {
+          "index": 9,
+          "name": "补课完课数",
+          "normalized_name": "补课完课数",
+          "semantic": "",
+          "inferred_type": "number",
+          "sample_values": [
+            "0.0",
+            "2.0",
+            "0.0"
+          ],
+          "business_meaning": ""
+        },
+        {
+          "index": 10,
+          "name": "旷课数",
+          "normalized_name": "旷课数",
+          "semantic": "",
+          "inferred_type": "number",
+          "sample_values": [
+            "0.0",
+            "5.0",
+            "0.0"
+          ],
+          "business_meaning": ""
+        },
+        {
+          "index": 11,
+          "name": "请假数",
+          "normalized_name": "请假数",
+          "semantic": "",
+          "inferred_type": "number",
+          "sample_values": [
+            "13.0",
+            "8031.0",
+            "507.0"
+          ],
+          "business_meaning": ""
+        },
+        {
+          "index": 12,
+          "name": "作业提交数",
+          "normalized_name": "作业提交数",
+          "semantic": "",
+          "inferred_type": "number",
+          "sample_values": [
+            "68.0",
+            "75215.0",
+            "4059.0"
+          ],
+          "business_meaning": ""
+        },
+        {
+          "index": 13,
+          "name": "课程预习率",
+          "normalized_name": "课程预习率",
+          "semantic": "",
+          "inferred_type": "number",
+          "sample_values": [
+            "0.8588235294117647",
+            "0.7992938094424512",
+            "0.8273414243187543"
+          ],
+          "business_meaning": ""
+        },
+        {
+          "index": 14,
+          "name": "一次完课率",
+          "normalized_name": "一次完课率",
+          "semantic": "",
+          "inferred_type": "number",
+          "sample_values": [
+            "0.9294117647058824",
+            "1.027131385614215",
+            "1.019922143347836"
+          ],
+          "business_meaning": ""
+        },
+        {
+          "index": 15,
+          "name": "总完课率",
+          "normalized_name": "总完课率",
+          "semantic": "",
+          "inferred_type": "number",
+          "sample_values": [
+            "0.8470588235294118",
+            "0.9085255424568597",
+            "0.8839019922143347"
+          ],
+          "business_meaning": ""
+        },
+        {
+          "index": 16,
+          "name": "请假率",
+          "normalized_name": "请假率",
+          "semantic": "",
+          "inferred_type": "number",
+          "sample_values": [
+            "0.15294117647058825",
+            "0.09147445754314026",
+            "0.11609800778566522"
+          ],
+          "business_meaning": ""
+        },
+        {
+          "index": 17,
+          "name": "作业提交率",
+          "normalized_name": "作业提交率",
+          "semantic": "",
+          "inferred_type": "number",
+          "sample_values": [
+            "0.8",
+            "0.8567116578392847",
+            "0.929471032745592"
+          ],
+          "business_meaning": ""
+        },
+        {
+          "index": 18,
+          "name": "首课学员数",
+          "normalized_name": "首课学员数",
+          "semantic": "",
+          "inferred_type": "number",
+          "sample_values": [
+            "0.0",
+            "482.0",
+            "73.0"
+          ],
+          "business_meaning": ""
+        },
+        {
+          "index": 19,
+          "name": "首课勿扰学员数",
+          "normalized_name": "首课勿扰学员数",
+          "semantic": "",
+          "inferred_type": "number",
+          "sample_values": [
+            "3.0",
+            "0.0",
+            "0.0"
+          ],
+          "business_meaning": ""
+        },
+        {
+          "index": 20,
+          "name": "首课勿扰学员占比",
+          "normalized_name": "首课勿扰学员占比",
+          "semantic": "",
+          "inferred_type": "number",
+          "sample_values": [
+            "0.006224066390041493",
+            "0.0",
+            "0.0"
+          ],
+          "business_meaning": ""
+        },
+        {
+          "index": 21,
+          "name": "分配LP后首课学员数",
+          "normalized_name": "分配LP后首课学员数",
+          "semantic": "teacher",
+          "inferred_type": "number",
+          "sample_values": [
+            "0.0",
+            "471.0",
+            "72.0"
+          ],
+          "business_meaning": ""
+        },
+        {
+          "index": 22,
+          "name": "首课作业完成率",
+          "normalized_name": "首课作业完成率",
+          "semantic": "",
+          "inferred_type": "number",
+          "sample_values": [
+            "0.8900414937759336",
+            "0.8493150684931506",
+            "0.8723404255319149"
+          ],
+          "business_meaning": ""
+        },
+        {
+          "index": 23,
+          "name": "首课跟进率",
+          "normalized_name": "首课跟进率",
+          "semantic": "",
+          "inferred_type": "number",
+          "sample_values": [
+            "0.9854771784232366",
+            "0.9726027397260274",
+            "1.0"
+          ],
+          "business_meaning": ""
+        },
+        {
+          "index": 24,
+          "name": "首课及时跟进数",
+          "normalized_name": "首课及时跟进数",
+          "semantic": "",
+          "inferred_type": "number",
+          "sample_values": [
+            "437.0",
+            "70.0",
+            "89.0"
+          ],
+          "business_meaning": ""
+        },
+        {
+          "index": 25,
+          "name": "首课及时跟进率",
+          "normalized_name": "首课及时跟进率",
+          "semantic": "",
+          "inferred_type": "number",
+          "sample_values": [
+            "0.9278131634819533",
+            "0.9722222222222222",
+            "0.978021978021978"
+          ],
+          "business_meaning": ""
+        },
+        {
+          "index": 26,
+          "name": "首课follow率",
+          "normalized_name": "首课follow率",
+          "semantic": "",
+          "inferred_type": "number",
+          "sample_values": [
+            "0.0",
+            "0.0",
+            "0.0"
+          ],
+          "business_meaning": ""
+        },
+        {
+          "index": 27,
+          "name": "首专学员数",
+          "normalized_name": "首专学员数",
+          "semantic": "",
+          "inferred_type": "number",
+          "sample_values": [
+            "0.0",
+            "452.0",
+            "53.0"
+          ],
+          "business_meaning": ""
+        },
+        {
+          "index": 28,
+          "name": "首专作业完成率",
+          "normalized_name": "首专作业完成率",
+          "semantic": "",
+          "inferred_type": "number",
+          "sample_values": [
+            "1.1128318584070795",
+            "1.0849056603773586",
+            "1.149390243902439"
+          ],
+          "business_meaning": ""
+        },
+        {
+          "index": 29,
+          "name": "首专勿扰学员数",
+          "normalized_name": "首专勿扰学员数",
+          "semantic": "",
+          "inferred_type": "number",
+          "sample_values": [
+            "13.0",
+            "0.0",
+            "4.0"
+          ],
+          "business_meaning": ""
+        },
+        {
+          "index": 30,
+          "name": "首专勿扰学员占比",
+          "normalized_name": "首专勿扰学员占比",
+          "semantic": "",
+          "inferred_type": "number",
+          "sample_values": [
+            "0.028761061946902654",
+            "0.0",
+            "0.04878048780487805"
+          ],
+          "business_meaning": ""
+        },
+        {
+          "index": 31,
+          "name": "首专跟进率",
+          "normalized_name": "首专跟进率",
+          "semantic": "",
+          "inferred_type": "number",
+          "sample_values": [
+            "0.9336283185840708",
+            "0.9811320754716981",
+            "1.0"
+          ],
+          "business_meaning": ""
+        },
+        {
+          "index": 32,
+          "name": "首专及时跟进数",
+          "normalized_name": "首专及时跟进数",
+          "semantic": "",
+          "inferred_type": "number",
+          "sample_values": [
+            "385.0",
+            "48.0",
+            "82.0"
+          ],
+          "business_meaning": ""
+        },
+        {
+          "index": 33,
+          "name": "首专及时跟进率",
+          "normalized_name": "首专及时跟进率",
+          "semantic": "",
+          "inferred_type": "number",
+          "sample_values": [
+            "0.8517699115044248",
+            "0.9056603773584906",
+            "1.0"
+          ],
+          "business_meaning": ""
+        },
+        {
+          "index": 34,
+          "name": "首月学员数",
+          "normalized_name": "首月学员数",
+          "semantic": "",
+          "inferred_type": "number",
+          "sample_values": [
+            "2.0",
+            "483.0",
+            "58.0"
+          ],
+          "business_meaning": ""
+        },
+        {
+          "index": 35,
+          "name": "首月勿扰学员数",
+          "normalized_name": "首月勿扰学员数",
+          "semantic": "",
+          "inferred_type": "number",
+          "sample_values": [
+            "0.0",
+            "15.0",
+            "0.0"
+          ],
+          "business_meaning": ""
+        },
+        {
+          "index": 36,
+          "name": "首月勿扰学员占比",
+          "normalized_name": "首月勿扰学员占比",
+          "semantic": "",
+          "inferred_type": "number",
+          "sample_values": [
+            "0.0",
+            "0.031055900621118012",
+            "0.0"
+          ],
+          "business_meaning": ""
+        },
+        {
+          "index": 37,
+          "name": "首月作业完成率",
+          "normalized_name": "首月作业完成率",
+          "semantic": "",
+          "inferred_type": "number",
+          "sample_values": [
+            "1.0",
+            "0.9114906832298136",
+            "0.959051724137931"
+          ],
+          "business_meaning": ""
+        },
+        {
+          "index": 38,
+          "name": "首月跟进率",
+          "normalized_name": "首月跟进率",
+          "semantic": "",
+          "inferred_type": "number",
+          "sample_values": [
+            "0.5",
+            "0.6169772256728778",
+            "0.603448275862069"
+          ],
+          "business_meaning": ""
+        },
+        {
+          "index": 39,
+          "name": "首月及时跟进率",
+          "normalized_name": "首月及时跟进率",
+          "semantic": "",
+          "inferred_type": "number",
+          "sample_values": [
+            "0.5",
+            "0.29606625258799174",
+            "0.25862068965517243"
+          ],
+          "business_meaning": ""
+        },
+        {
+          "index": 40,
+          "name": "月度回访学员数",
+          "normalized_name": "月度回访学员数",
+          "semantic": "",
+          "inferred_type": "number",
+          "sample_values": [
+            "0.0",
+            "0.0",
+            "0.0"
+          ],
+          "business_meaning": ""
+        },
+        {
+          "index": 41,
+          "name": "月度回访跟进率",
+          "normalized_name": "月度回访跟进率",
+          "semantic": "",
+          "inferred_type": "empty",
+          "sample_values": [],
+          "business_meaning": ""
+        },
+        {
+          "index": 42,
+          "name": "正式课-排课学员数",
+          "normalized_name": "正式课_排课学员数",
+          "semantic": "",
+          "inferred_type": "number",
+          "sample_values": [
+            "22718.0",
+            "22718.0",
+            "1131.0"
+          ],
+          "business_meaning": ""
+        },
+        {
+          "index": 43,
+          "name": "正式课-排课课节数",
+          "normalized_name": "正式课_排课课节数",
+          "semantic": "",
+          "inferred_type": "number",
+          "sample_values": [
+            "86666.0",
+            "86666.0",
+            "4353.0"
+          ],
+          "business_meaning": ""
+        },
+        {
+          "index": 44,
+          "name": "正式课-到课消课课节数",
+          "normalized_name": "正式课_到课消课课节数",
+          "semantic": "",
+          "inferred_type": "number",
+          "sample_values": [
+            "78822.0",
+            "78822.0",
+            "3844.0"
+          ],
+          "business_meaning": ""
+        },
+        {
+          "index": 45,
+          "name": "正式课-完课消课课节数",
+          "normalized_name": "正式课_完课消课课节数",
+          "semantic": "",
+          "inferred_type": "number",
+          "sample_values": [
+            "68190.0",
+            "68190.0",
+            "3366.0"
+          ],
+          "business_meaning": ""
+        },
+        {
+          "index": 46,
+          "name": "正式课-消耗课时数",
+          "normalized_name": "正式课_消耗课时数",
+          "semantic": "",
+          "inferred_type": "number",
+          "sample_values": [
+            "81676.0",
+            "81676.0",
+            "4000.0"
+          ],
+          "business_meaning": ""
+        },
+        {
+          "index": 47,
+          "name": "正式课-请假课节数",
+          "normalized_name": "正式课_请假课节数",
+          "semantic": "",
+          "inferred_type": "number",
+          "sample_values": [
+            "7880.0",
+            "7880.0",
+            "506.0"
+          ],
+          "business_meaning": ""
+        },
+        {
+          "index": 48,
+          "name": "正式课-到课完课率",
+          "normalized_name": "正式课_到课完课率",
+          "semantic": "",
+          "inferred_type": "number",
+          "sample_values": [
+            "0.8651138007155362",
+            "0.8651138007155362",
+            "0.8756503642039543"
+          ],
+          "business_meaning": ""
+        },
+        {
+          "index": 49,
+          "name": "补课-AI补课学员数",
+          "normalized_name": "补课_AI补课学员数",
+          "semantic": "",
+          "inferred_type": "number",
+          "sample_values": [
+            "472.0",
+            "472.0",
+            "6.0"
+          ],
+          "business_meaning": ""
+        },
+        {
+          "index": 50,
+          "name": "补课-AI补课课节数",
+          "normalized_name": "补课_AI补课课节数",
+          "semantic": "",
+          "inferred_type": "number",
+          "sample_values": [
+            "527.0",
+            "527.0",
+            "6.0"
+          ],
+          "business_meaning": ""
+        },
+        {
+          "index": 51,
+          "name": "补课-直播补课学员数",
+          "normalized_name": "补课_直播补课学员数",
+          "semantic": "",
+          "inferred_type": "number",
+          "sample_values": [
+            "905.0",
+            "905.0",
+            "15.0"
+          ],
+          "business_meaning": ""
+        },
+        {
+          "index": 52,
+          "name": "补课-直播补课课节数",
+          "normalized_name": "补课_直播补课课节数",
+          "semantic": "",
+          "inferred_type": "number",
+          "sample_values": [
+            "1043.0",
+            "1043.0",
+            "15.0"
+          ],
+          "business_meaning": ""
+        },
+        {
+          "index": 53,
+          "name": "补课-直播补课消耗课时数",
+          "normalized_name": "补课_直播补课消耗课时数",
+          "semantic": "",
+          "inferred_type": "number",
+          "sample_values": [
+            "926.0",
+            "926.0",
+            "14.0"
+          ],
+          "business_meaning": ""
+        },
+        {
+          "index": 54,
+          "name": "补课-直播补课签到消耗课时数",
+          "normalized_name": "补课_直播补课签到消耗课时数",
+          "semantic": "",
+          "inferred_type": "number",
+          "sample_values": [
+            "906.0",
+            "906.0",
+            "14.0"
+          ],
+          "business_meaning": ""
+        },
+        {
+          "index": 55,
+          "name": "补课-直播请假补课率",
+          "normalized_name": "补课_直播请假补课率",
+          "semantic": "",
+          "inferred_type": "number",
+          "sample_values": [
+            "0.13236040609137056",
+            "0.13236040609137056",
+            "0.029644268774703556"
+          ],
+          "business_meaning": ""
+        },
+        {
+          "index": 56,
+          "name": "寒暑班-排课学员数",
+          "normalized_name": "寒暑班_排课学员数",
+          "semantic": "",
+          "inferred_type": "number",
+          "sample_values": [
+            "0.0",
+            "0.0",
+            "0.0"
+          ],
+          "business_meaning": ""
+        },
+        {
+          "index": 57,
+          "name": "寒暑班-排课课节数",
+          "normalized_name": "寒暑班_排课课节数",
+          "semantic": "",
+          "inferred_type": "number",
+          "sample_values": [
+            "0.0",
+            "0.0",
+            "0.0"
+          ],
+          "business_meaning": ""
+        },
+        {
+          "index": 58,
+          "name": "寒暑班-到课消课课节数",
+          "normalized_name": "寒暑班_到课消课课节数",
+          "semantic": "",
+          "inferred_type": "number",
+          "sample_values": [
+            "0.0",
+            "0.0",
+            "0.0"
+          ],
+          "business_meaning": ""
+        },
+        {
+          "index": 59,
+          "name": "寒暑班-完课消课课节数",
+          "normalized_name": "寒暑班_完课消课课节数",
+          "semantic": "",
+          "inferred_type": "number",
+          "sample_values": [
+            "0.0",
+            "0.0",
+            "0.0"
+          ],
+          "business_meaning": ""
+        },
+        {
+          "index": 60,
+          "name": "寒暑班-消耗课时数",
+          "normalized_name": "寒暑班_消耗课时数",
+          "semantic": "",
+          "inferred_type": "number",
+          "sample_values": [
+            "0.0",
+            "0.0",
+            "0.0"
+          ],
+          "business_meaning": ""
+        },
+        {
+          "index": 61,
+          "name": "寒暑班-签到消耗课时数",
+          "normalized_name": "寒暑班_签到消耗课时数",
+          "semantic": "",
+          "inferred_type": "number",
+          "sample_values": [
+            "0.0",
+            "0.0",
+            "0.0"
+          ],
+          "business_meaning": ""
+        },
+        {
+          "index": 62,
+          "name": "11.0",
+          "normalized_name": "11_0",
+          "semantic": "",
+          "inferred_type": "empty",
+          "sample_values": [],
+          "business_meaning": ""
+        }
+      ],
+      "schema_hash": "ef8e6ff75301a7c3",
+      "sample_row_count": 20,
+      "parameters": []
+    },
+    "data_quality": {
+      "empty_file": false,
+      "column_count": 61,
+      "sample_row_count": 20,
+      "schema_hash": "ef8e6ff75301a7c3",
+      "schema_source": "excel",
+      "row_count_text": "",
+      "duplicate_columns": [],
+      "filter_parameter_mismatches": [],
+      "filter_change_count": 2,
+      "filter_issues": []
+    },
+    "business": {
+      "recommended_use": "",
+      "not_recommended_for": [],
+      "owner": "",
+      "refresh_frequency": "",
+      "metric_notes": "",
+      "known_caveats": []
+    }
+  },
+  "益智海外新生首通监控": {
+    "identity": {
+      "name": "益智海外新生首通监控",
+      "path": [
+        "海外直播业务线",
+        "海外后端",
+        "思维-后端",
+        "服务",
+        "首通",
+        "益智海外新生首通监控"
+      ],
+      "type": "monitor",
+      "business_domain": "",
+      "status": "unknown",
+      "authority_level": "unknown"
+    },
+    "filters": [
+      {
+        "index": 15,
+        "label": "区域等级",
+        "control_type": "combobox",
+        "required": false,
+        "default_value": "全部",
+        "semantic": "region",
+        "business_meaning": "",
+        "options_sample": [
+          "[全选]",
+          "北美",
+          "欧洲",
+          "澳洲",
+          "亚洲",
+          "港澳",
+          "台湾",
+          "海外其他",
+          "国内"
+        ],
+        "excel_parameter_label": "LP小组",
+        "excel_parameter_value": "小组主管"
+      },
+      {
+        "index": 17,
+        "label": "首次分配开始时间",
+        "control_type": "date",
+        "required": true,
+        "default_value": "2026-05-01",
+        "semantic": "start_date",
+        "business_meaning": "",
+        "options_sample": [],
+        "excel_parameter_label": "LP姓名",
+        "excel_parameter_value": "月度"
+      },
+      {
+        "index": 19,
+        "label": "首次分配结束时间",
+        "control_type": "date",
+        "required": true,
+        "default_value": "2026-05-18",
+        "semantic": "end_date",
+        "business_meaning": "",
+        "options_sample": []
+      }
+    ],
+    "export": {
+      "supported": true,
+      "entry_type": "",
+      "mode": "headless_serial",
+      "template_download_only": false,
+      "last_status": "pass",
+      "last_file_bytes": 39556,
+      "last_file": "E:\\Projects\\active\\bi\\reports\\skill-test\\profile-full\\full_filters_20260517\\0226_a2d5075356_益智海外新生首通监控\\益智海外新生首通监控_2026-05-16_074244.xlsx",
+      "last_error": "",
+      "last_log": "E:\\Projects\\active\\bi\\reports\\skill-test\\profile-full\\full_filters_20260517\\0226_a2d5075356_益智海外新生首通监控\\console.log",
+      "audit_log": "E:\\Projects\\active\\bi\\reports\\skill-test\\filter-learning\\overnight-20260518_014804-cases_worker_01\\20260518_041154\\07_益智海外新生首通监控\\console.log",
+      "dom_log": "",
+      "updated_at": "2026-05-17T07:43:02",
+      "open_supported": true,
+      "dom_profile_available": false
+    },
+    "schema": {
+      "sheet": "Sheet1",
+      "header_row": 3,
+      "column_count": 43,
+      "columns": [
+        {
+          "index": 5,
+          "name": "新生数",
+          "normalized_name": "新生数",
+          "semantic": "",
+          "inferred_type": "number",
+          "sample_values": [
+            "487.0",
+            "84.0",
+            "79.0"
+          ],
+          "business_meaning": ""
+        },
+        {
+          "index": 6,
+          "name": "转介绍池分配新生数",
+          "normalized_name": "转介绍池分配新生数",
+          "semantic": "",
+          "inferred_type": "number",
+          "sample_values": [
+            "140.0",
+            "13.0",
+            "22.0"
+          ],
+          "business_meaning": ""
+        },
+        {
+          "index": 7,
+          "name": "菲教定向新生数",
+          "normalized_name": "菲教定向新生数",
+          "semantic": "",
+          "inferred_type": "number",
+          "sample_values": [
+            "66.0",
+            "2.0",
+            "5.0"
+          ],
+          "business_meaning": ""
+        },
+        {
+          "index": 8,
+          "name": "勿扰新生数",
+          "normalized_name": "勿扰新生数",
+          "semantic": "",
+          "inferred_type": "number",
+          "sample_values": [
+            "7.0",
+            "0.0",
+            "0.0"
+          ],
+          "business_meaning": ""
+        },
+        {
+          "index": 9,
+          "name": "勿扰新生占比",
+          "normalized_name": "勿扰新生占比",
+          "semantic": "",
+          "inferred_type": "number",
+          "sample_values": [
+            "0.014373716632443531",
+            "0.0",
+            "0.0"
+          ],
+          "business_meaning": ""
+        },
+        {
+          "index": 10,
+          "name": "一家多娃新生数",
+          "normalized_name": "一家多娃新生数",
+          "semantic": "",
+          "inferred_type": "number",
+          "sample_values": [
+            "10.0",
+            "0.0",
+            "0.0"
+          ],
+          "business_meaning": ""
+        },
+        {
+          "index": 11,
+          "name": "一家多娃占比",
+          "normalized_name": "一家多娃占比",
+          "semantic": "",
+          "inferred_type": "number",
+          "sample_values": [
+            "0.02053388090349076",
+            "0.0",
+            "0.0"
+          ],
+          "business_meaning": ""
+        },
+        {
+          "index": 12,
+          "name": "跟进数",
+          "normalized_name": "跟进数",
+          "semantic": "",
+          "inferred_type": "number",
+          "sample_values": [
+            "478.0",
+            "84.0",
+            "78.0"
+          ],
+          "business_meaning": ""
+        },
+        {
+          "index": 13,
+          "name": "及时跟进数",
+          "normalized_name": "及时跟进数",
+          "semantic": "",
+          "inferred_type": "number",
+          "sample_values": [
+            "455.0",
+            "84.0",
+            "74.0"
+          ],
+          "business_meaning": ""
+        },
+        {
+          "index": 14,
+          "name": "拨通数",
+          "normalized_name": "拨通数",
+          "semantic": "",
+          "inferred_type": "number",
+          "sample_values": [
+            "335.0",
+            "79.0",
+            "50.0"
+          ],
+          "business_meaning": ""
+        },
+        {
+          "index": 15,
+          "name": "跟进完成数",
+          "normalized_name": "跟进完成数",
+          "semantic": "",
+          "inferred_type": "number",
+          "sample_values": [
+            "200.0",
+            "61.0",
+            "29.0"
+          ],
+          "business_meaning": ""
+        },
+        {
+          "index": 16,
+          "name": "企微绑定数",
+          "normalized_name": "企微绑定数",
+          "semantic": "",
+          "inferred_type": "number",
+          "sample_values": [
+            "293.0",
+            "2.0",
+            "57.0"
+          ],
+          "business_meaning": ""
+        },
+        {
+          "index": 17,
+          "name": "48小时企微绑定数",
+          "normalized_name": "48小时企微绑定数",
+          "semantic": "",
+          "inferred_type": "number",
+          "sample_values": [
+            "248.0",
+            "0.0",
+            "49.0"
+          ],
+          "business_meaning": ""
+        },
+        {
+          "index": 18,
+          "name": "首通follow率",
+          "normalized_name": "首通follow率",
+          "semantic": "",
+          "inferred_type": "number",
+          "sample_values": [
+            "0.648870636550308",
+            "0.8214285714285714",
+            "0.6329113924050633"
+          ],
+          "business_meaning": ""
+        },
+        {
+          "index": 19,
+          "name": "跟进率",
+          "normalized_name": "跟进率",
+          "semantic": "",
+          "inferred_type": "number",
+          "sample_values": [
+            "0.9815195071868583",
+            "1.0",
+            "0.9873417721518988"
+          ],
+          "business_meaning": ""
+        },
+        {
+          "index": 20,
+          "name": "建群率",
+          "normalized_name": "建群率",
+          "semantic": "",
+          "inferred_type": "number",
+          "sample_values": [
+            "0.4887063655030801",
+            "0.023809523809523808",
+            "0.6582278481012658"
+          ],
+          "business_meaning": ""
+        },
+        {
+          "index": 21,
+          "name": "及时跟进率",
+          "normalized_name": "及时跟进率",
+          "semantic": "",
+          "inferred_type": "number",
+          "sample_values": [
+            "0.9342915811088296",
+            "1.0",
+            "0.9367088607594937"
+          ],
+          "business_meaning": ""
+        },
+        {
+          "index": 22,
+          "name": "跟进完成率",
+          "normalized_name": "跟进完成率",
+          "semantic": "",
+          "inferred_type": "number",
+          "sample_values": [
+            "0.4106776180698152",
+            "0.7261904761904762",
+            "0.3670886075949367"
+          ],
+          "business_meaning": ""
+        },
+        {
+          "index": 23,
+          "name": "首次系统外呼数",
+          "normalized_name": "首次系统外呼数",
+          "semantic": "",
+          "inferred_type": "number",
+          "sample_values": [
+            "479.0",
+            "84.0",
+            "79.0"
+          ],
+          "business_meaning": ""
+        },
+        {
+          "index": 24,
+          "name": "首次系统有效外呼接通率",
+          "normalized_name": "首次系统有效外呼接通率",
+          "semantic": "",
+          "inferred_type": "number",
+          "sample_values": [
+            "0.2797494780793319",
+            "0.40476190476190477",
+            "0.26582278481012656"
+          ],
+          "business_meaning": ""
+        },
+        {
+          "index": 25,
+          "name": "接通率",
+          "normalized_name": "接通率",
+          "semantic": "",
+          "inferred_type": "number",
+          "sample_values": [
+            "0.6878850102669405",
+            "0.9404761904761905",
+            "0.6329113924050633"
+          ],
+          "business_meaning": ""
+        },
+        {
+          "index": 26,
+          "name": "生均接通时长",
+          "normalized_name": "生均接通时长",
+          "semantic": "",
+          "inferred_type": "number",
+          "sample_values": [
+            "11.752996845425868",
+            "12.48607305936073",
+            "12.269202898550725"
+          ],
+          "business_meaning": ""
+        },
+        {
+          "index": 27,
+          "name": "企微绑定率",
+          "normalized_name": "企微绑定率",
+          "semantic": "",
+          "inferred_type": "number",
+          "sample_values": [
+            "0.6016427104722792",
+            "0.023809523809523808",
+            "0.7215189873417721"
+          ],
+          "business_meaning": ""
+        },
+        {
+          "index": 28,
+          "name": "48小时企微绑定率",
+          "normalized_name": "48小时企微绑定率",
+          "semantic": "",
+          "inferred_type": "number",
+          "sample_values": [
+            "0.5092402464065708",
+            "0.0",
+            "0.620253164556962"
+          ],
+          "business_meaning": ""
+        },
+        {
+          "index": 29,
+          "name": "秒挂占比",
+          "normalized_name": "秒挂占比",
+          "semantic": "",
+          "inferred_type": "number",
+          "sample_values": [
+            "0.09710982658959537",
+            "0.026865671641791045",
+            "0.07419354838709677"
+          ],
+          "business_meaning": ""
+        },
+        {
+          "index": 30,
+          "name": "外呼总次数",
+          "normalized_name": "外呼总次数",
+          "semantic": "",
+          "inferred_type": "number",
+          "sample_values": [
+            "1817.0",
+            "335.0",
+            "312.0"
+          ],
+          "business_meaning": ""
+        },
+        {
+          "index": 31,
+          "name": "生均外呼次数",
+          "normalized_name": "生均外呼次数",
+          "semantic": "",
+          "inferred_type": "number",
+          "sample_values": [
+            "3.761904761904762",
+            "3.988095238095238",
+            "3.949367088607595"
+          ],
+          "business_meaning": ""
+        },
+        {
+          "index": 32,
+          "name": "新生数",
+          "normalized_name": "新生数",
+          "semantic": "",
+          "inferred_type": "number",
+          "sample_values": [
+            "0.0",
+            "0.0",
+            "0.0"
+          ],
+          "business_meaning": ""
+        },
+        {
+          "index": 33,
+          "name": "跟进数",
+          "normalized_name": "跟进数",
+          "semantic": "",
+          "inferred_type": "number",
+          "sample_values": [
+            "0.0",
+            "0.0",
+            "0.0"
+          ],
+          "business_meaning": ""
+        },
+        {
+          "index": 34,
+          "name": "及时跟进数",
+          "normalized_name": "及时跟进数",
+          "semantic": "",
+          "inferred_type": "number",
+          "sample_values": [
+            "0.0",
+            "0.0",
+            "0.0"
+          ],
+          "business_meaning": ""
+        },
+        {
+          "index": 35,
+          "name": "拨通数",
+          "normalized_name": "拨通数",
+          "semantic": "",
+          "inferred_type": "number",
+          "sample_values": [
+            "0.0",
+            "0.0",
+            "0.0"
+          ],
+          "business_meaning": ""
+        },
+        {
+          "index": 36,
+          "name": "跟进完成数",
+          "normalized_name": "跟进完成数",
+          "semantic": "",
+          "inferred_type": "number",
+          "sample_values": [
+            "0.0",
+            "0.0",
+            "0.0"
+          ],
+          "business_meaning": ""
+        },
+        {
+          "index": 37,
+          "name": "企微绑定数",
+          "normalized_name": "企微绑定数",
+          "semantic": "",
+          "inferred_type": "number",
+          "sample_values": [
+            "0.0",
+            "0.0",
+            "0.0"
+          ],
+          "business_meaning": ""
+        },
+        {
+          "index": 38,
+          "name": "今日首通follow",
+          "normalized_name": "今日首通follow",
+          "semantic": "",
+          "inferred_type": "number",
+          "sample_values": [
+            "0.0",
+            "0.0",
+            "0.0"
+          ],
+          "business_meaning": ""
+        },
+        {
+          "index": 39,
+          "name": "今日首通follow率",
+          "normalized_name": "今日首通follow率",
+          "semantic": "",
+          "inferred_type": "empty",
+          "sample_values": [],
+          "business_meaning": ""
+        },
+        {
+          "index": 40,
+          "name": "跟进率",
+          "normalized_name": "跟进率",
+          "semantic": "",
+          "inferred_type": "empty",
+          "sample_values": [],
+          "business_meaning": ""
+        },
+        {
+          "index": 41,
+          "name": "及时跟进率",
+          "normalized_name": "及时跟进率",
+          "semantic": "",
+          "inferred_type": "empty",
+          "sample_values": [],
+          "business_meaning": ""
+        },
+        {
+          "index": 42,
+          "name": "跟进完成率",
+          "normalized_name": "跟进完成率",
+          "semantic": "",
+          "inferred_type": "empty",
+          "sample_values": [],
+          "business_meaning": ""
+        },
+        {
+          "index": 43,
+          "name": "接通率",
+          "normalized_name": "接通率",
+          "semantic": "",
+          "inferred_type": "empty",
+          "sample_values": [],
+          "business_meaning": ""
+        },
+        {
+          "index": 44,
+          "name": "建群数",
+          "normalized_name": "建群数",
+          "semantic": "",
+          "inferred_type": "number",
+          "sample_values": [
+            "0.0",
+            "0.0",
+            "0.0"
+          ],
+          "business_meaning": ""
+        },
+        {
+          "index": 45,
+          "name": "建群率",
+          "normalized_name": "建群率",
+          "semantic": "",
+          "inferred_type": "string",
+          "sample_values": [
+            "#DIV/0!",
+            "#DIV/0!",
+            "#DIV/0!"
+          ],
+          "business_meaning": ""
+        },
+        {
+          "index": 46,
+          "name": "生均接通时长",
+          "normalized_name": "生均接通时长",
+          "semantic": "",
+          "inferred_type": "empty",
+          "sample_values": [],
+          "business_meaning": ""
+        },
+        {
+          "index": 47,
+          "name": "企微绑定率",
+          "normalized_name": "企微绑定率",
+          "semantic": "",
+          "inferred_type": "empty",
+          "sample_values": [],
+          "business_meaning": ""
+        }
+      ],
+      "schema_hash": "2eec0db50985e106",
+      "sample_row_count": 20,
+      "parameters": [
+        {
+          "label": "LP小组",
+          "value": "小组主管",
+          "semantic": "team"
+        },
+        {
+          "label": "LP姓名",
+          "value": "月度",
+          "semantic": ""
+        }
+      ]
+    },
+    "data_quality": {
+      "empty_file": false,
+      "column_count": 43,
+      "sample_row_count": 20,
+      "schema_hash": "2eec0db50985e106",
+      "schema_source": "excel",
+      "row_count_text": "",
+      "duplicate_columns": [
+        "企微绑定数",
+        "企微绑定率",
+        "及时跟进数",
+        "及时跟进率",
+        "建群率",
+        "拨通数",
+        "接通率",
+        "新生数",
+        "生均接通时长",
+        "跟进完成数",
+        "跟进完成率",
+        "跟进数",
+        "跟进率"
+      ],
+      "filter_parameter_mismatches": [
+        {
+          "filter_label": "区域等级",
+          "ui_default_value": "全部",
+          "excel_parameter_label": "LP小组",
+          "excel_parameter_value": "小组主管"
+        },
+        {
+          "filter_label": "首次分配开始时间",
+          "ui_default_value": "2026-05-01",
+          "excel_parameter_label": "LP姓名",
+          "excel_parameter_value": "月度"
+        }
+      ],
+      "filter_change_count": 0,
+      "filter_issues": []
+    },
+    "business": {
+      "recommended_use": "",
+      "not_recommended_for": [],
+      "owner": "",
+      "refresh_frequency": "",
+      "metric_notes": "",
+      "known_caveats": []
+    }
+  },
+  "AI学情助手完成情况明细": {
+    "identity": {
+      "name": "AI学情助手完成情况明细（验收中）",
+      "path": [
+        "海外直播业务线",
+        "海外后端",
+        "思维-后端",
+        "服务",
+        "AI学情",
+        "AI学情助手完成情况明细（验收中）"
+      ],
+      "type": "detail",
+      "business_domain": "",
+      "status": "unknown",
+      "authority_level": "unknown"
+    },
+    "filters": [
+      {
+        "index": 27,
+        "label": "日期",
+        "control_type": "date",
+        "required": true,
+        "default_value": "2026-05-19",
+        "semantic": "date",
+        "business_meaning": "",
+        "options_sample": [],
+        "requested_value": "2026-05-16",
+        "after_value": "2026-05-16",
+        "changed": true,
+        "change_mode": "explicit"
+      }
+    ],
+    "export": {
+      "supported": true,
+      "entry_type": "",
+      "mode": "headless_serial",
+      "template_download_only": false,
+      "last_status": "pass",
+      "last_file_bytes": 26988,
+      "last_file": "E:\\Projects\\active\\bi\\reports\\skill-test\\profile-full\\full_filters_20260517\\0197_6a5b389931_AI学情助手完成情况明细_验收中\\AI学情助手完成情况明细（验收中）_2026-05-16_070018.xlsx",
+      "last_error": "",
+      "last_log": "E:\\Projects\\active\\bi\\reports\\skill-test\\profile-full\\full_filters_20260517\\0197_6a5b389931_AI学情助手完成情况明细_验收中\\console.log",
+      "audit_log": "E:\\Projects\\active\\bi\\reports\\skill-test\\kb_route_validation_20260519\\01_ai_learning_detail\\console.log",
+      "dom_log": "E:\\Projects\\active\\bi\\reports\\skill-test\\kb_route_validation_20260519\\01_ai_learning_detail\\console.log",
+      "updated_at": "2026-05-17T07:00:34",
+      "open_supported": true,
+      "dom_profile_available": true
+    },
+    "schema": {
+      "sheet": "dom",
+      "source": "dom_profile",
+      "header_row": 0,
+      "column_count": 11,
+      "columns": [
+        {
+          "index": 1,
+          "name": "LP小组",
+          "normalized_name": "LP小组",
+          "semantic": "teacher",
+          "inferred_type": "unknown",
+          "sample_values": [],
+          "business_meaning": ""
+        },
+        {
+          "index": 2,
+          "name": "lp_id",
+          "normalized_name": "lp_id",
+          "semantic": "",
+          "inferred_type": "unknown",
+          "sample_values": [],
+          "business_meaning": ""
+        },
+        {
+          "index": 3,
+          "name": "班主任昵称",
+          "normalized_name": "班主任昵称",
+          "semantic": "",
+          "inferred_type": "unknown",
+          "sample_values": [],
+          "business_meaning": ""
+        },
+        {
+          "index": 4,
+          "name": "班主任姓名",
+          "normalized_name": "班主任姓名",
+          "semantic": "",
+          "inferred_type": "unknown",
+          "sample_values": [],
+          "business_meaning": ""
+        },
+        {
+          "index": 5,
+          "name": "大账户id",
+          "normalized_name": "大账户id",
+          "semantic": "",
+          "inferred_type": "unknown",
+          "sample_values": [],
+          "business_meaning": ""
+        },
+        {
+          "index": 6,
+          "name": "学员id",
+          "normalized_name": "学员id",
+          "semantic": "user_id",
+          "inferred_type": "unknown",
+          "sample_values": [],
+          "business_meaning": ""
+        },
+        {
+          "index": 7,
+          "name": "干预状态",
+          "normalized_name": "干预状态",
+          "semantic": "",
+          "inferred_type": "unknown",
+          "sample_values": [],
+          "business_meaning": ""
+        },
+        {
+          "index": 8,
+          "name": "干预状态名称",
+          "normalized_name": "干预状态名称",
+          "semantic": "",
+          "inferred_type": "unknown",
+          "sample_values": [],
+          "business_meaning": ""
+        },
+        {
+          "index": 9,
+          "name": "任务名",
+          "normalized_name": "任务名",
+          "semantic": "",
+          "inferred_type": "unknown",
+          "sample_values": [],
+          "business_meaning": ""
+        },
+        {
+          "index": 10,
+          "name": "任务名称",
+          "normalized_name": "任务名称",
+          "semantic": "",
+          "inferred_type": "unknown",
+          "sample_values": [],
+          "business_meaning": ""
+        },
+        {
+          "index": 11,
+          "name": "创建时间",
+          "normalized_name": "创建时间",
+          "semantic": "date",
+          "inferred_type": "unknown",
+          "sample_values": [],
+          "business_meaning": ""
+        }
+      ],
+      "schema_hash": "1d14bc565af2aece",
+      "sample_row_count": 0,
+      "parameters": [],
+      "row_count_text": "366",
+      "title": "AI学情助手完成情况明细（验收中）"
+    },
+    "data_quality": {
+      "empty_file": false,
+      "column_count": 11,
+      "sample_row_count": 0,
+      "schema_hash": "1d14bc565af2aece",
+      "schema_source": "dom_profile",
+      "row_count_text": "366",
+      "duplicate_columns": [],
+      "filter_parameter_mismatches": [],
+      "filter_change_count": 1,
+      "filter_issues": []
+    },
+    "business": {
+      "recommended_use": "",
+      "not_recommended_for": [],
+      "owner": "",
+      "refresh_frequency": "",
+      "metric_notes": "",
+      "known_caveats": []
+    }
+  }
+}
