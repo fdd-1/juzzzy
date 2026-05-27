@@ -21,6 +21,7 @@ python crm_batch_create_lesson_packages.py --xlsx "<excel路径>" --skip-existin
 crm_batch_create_lesson_packages.py - 批量执行
 auth_state.json - 登录态缓存
 config.local.json - 环境配置
+
 2️⃣ lp_moments/ - LP企微朋友圈排期与话术生成
 作用：为学管（Learning Planner）生成企微朋友圈发布排期和营销文案
 
@@ -41,6 +42,7 @@ content_library/ - 内容素材库
 schedules/ - 排期管理
 user_profiles/ - 用户画像
 scripts/ - 生成脚本
+
 3️⃣ service-incentive-calc/ - 服务激励核算自动化
 作用：每月从BI报表提取服务绩效指标，自动计算团队激励金额
 
@@ -96,6 +98,7 @@ python xueqing_review.py \
 抽查总览 - 老师信息、符合模板数、同质化评估、综合评级
 详细条目 - 每条学情的具体内容和匹配情况
 评估规则 - 规则说明文档
+
 5️⃣ 周报自动化/ - 周报数据处理与飞书发布
 作用：BI报表 → 数据清洗整合 → 结论生成 → 格式化Excel → 飞书电子表格嵌入文档
 
@@ -128,24 +131,3 @@ python create_feishu_sheets.py
 辅助列：跟进率、接通率、企微绑定率、AI占比
 Windows命令行≤8KB限制：sheets +write 分批3-5行
 台湾组数据保留但不进结论
-🔄 运行频次总结
-工具	频次	触发方式
-crm-lesson-package	按需	有新SKU配置时
-lp_moments	按周期	营销周期/升阶季
-service-incentive-calc	每月1次	月中/月末
-xueqing-review	按需	质量检查时
-周报自动化	按需	人工触发（周报制作时）
-📦 技术依赖
-Python环境：Python 3.10+
-
-核心依赖：
-
-pandas - 数据处理
-openpyxl - Excel读写
-playwright - 浏览器自动化
-lark-cli - 飞书API操作
-外部系统：
-
-BI系统（Smartbi）- 数据源
-豌豆思维CRM - 课时包管理
-飞书 - 文档/电子表格发布
