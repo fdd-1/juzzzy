@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LP朋友圈排期与话术参考</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Microsoft YaHei", sans-serif;
+            background: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        .header h1 { font-size: 28px; margin-bottom: 8px; }
+        .header p { opacity: 0.9; font-size: 14px; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+        .tab-nav {
+            display: flex;
+            gap: 0;
+            margin: 24px 0 0;
+            border-bottom: 2px solid #e2e8f0;
+        }
+        .tab-btn {
+            padding: 14px 32px;
+            border: none;
+            background: transparent;
+            font-size: 16px;
+            font-weight: 600;
+            color: #64748b;
+            cursor: pointer;
+            border-bottom: 3px solid transparent;
+            margin-bottom: -2px;
+            transition: all 0.2s;
+        }
+        .tab-btn:hover { color: #667eea; }
+        .tab-btn.active { color: #667eea; border-bottom-color: #667eea; }
+        .tab-content { padding: 24px 0; }
+        .section { background: white; border-radius: 12px; padding: 24px; margin-bottom: 20px; box-shadow: 0 1px 3px rgba(0,0,0,0.08); }
+        .section h2 { font-size: 20px; color: #1e293b; margin-bottom: 16px; padding-bottom: 10px; border-bottom: 1px solid #f1f5f9; }
+        .section h3 { font-size: 16px; color: #475569; margin: 16px 0 10px; }
+        .badge { display: inline-block; padding: 3px 10px; border-radius: 20px; font-size: 12px; font-weight: 500; margin-right: 6px; }
+        .badge-purple { background: #ede9fe; color: #7c3aed; }
+        .badge-blue { background: #dbeafe; color: #2563eb; }
+        .badge-green { background: #dcfce7; color: #16a34a; }
+        .badge-orange { background: #ffedd5; color: #ea580c; }
+        .badge-red { background: #fee2e2; color: #dc2626; }
+        table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 14px; }
+        th { background: #f8fafc; text-align: left; padding: 10px 12px; font-weight: 600; color: #475569; border-bottom: 2px solid #e2e8f0; }
+        td { padding: 10px 12px; border-bottom: 1px solid #f1f5f9; vertical-align: top; }
+        tr:hover td { background: #f8fafc; }
+        .copy-text { background: #fefce8; padding: 6px 10px; border-radius: 6px; font-size: 13px; color: #854d0e; display: inline-block; margin: 2px 0; }
+        .month-tag { background: #667eea; color: white; padding: 2px 8px; border-radius: 4px; font-size: 12px; font-weight: 600; }
+        .warn-card { background: #fef2f2; border: 1px solid #fecaca; border-radius: 10px; padding: 16px; margin: 12px 0; }
+        .warn-card h4 { color: #dc2626; margin-bottom: 8px; }
+        .tip-card { background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 10px; padding: 16px; margin: 12px 0; }
+        .schedule-card { background: #fafafa; border: 1px solid #e5e7eb; border-radius: 10px; padding: 16px; margin: 12px 0; }
+        .schedule-card .time { font-weight: 700; color: #667eea; }
+        .schedule-card .type { font-size: 12px; color: #64748b; }
+        .schedule-card .content { margin: 8px 0; font-size: 14px; }
+        .schedule-card .tip { font-size: 12px; color: #6b7280; font-style: italic; }
+        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+        @media (max-width: 768px) { .grid-2 { grid-template-columns: 1fr; } .tab-btn { padding: 10px 16px; font-size: 14px; } }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>LP企微朋友圈 排期与话术参考</h1>
+        <p>按地区定制 | 已剔除宗教和政治类话题 | 更新于 2026年5月</p>
+    </div>
+    <div class="container">
+        <div class="tab-nav">
+            <button class="tab-btn active" data-tab="hk">港澳台地区</button>
+            <button class="tab-btn" data-tab="west">欧美澳地区</button>
+            <button class="tab-btn" data-tab="common">通用选题</button>
+            <button class="tab-btn" data-tab="rules">禁忌清单</button>
+        </div>
+        <div id="tab-hk" class="tab-content active">
+            <div class="section">
+                <h2>6月排期总览 <span class="badge badge-purple">港澳台</span></h2>
+                <p style="color:#64748b;margin-bottom:12px;">节奏：每周2-3条内容帖 + 1条续费 + 1条转介绍 | 重点节点：6.1儿童节、618优惠活动</p>
+            </div>
+
+            <div class="section">
+                <h2>第1周（6/2-6/6）<span class="badge badge-orange">儿童节专题</span></h2>
+                <div class="schedule-card">
+                    <div class="time">周一 6/2 08:30</div>
+                    <div class="type"><span class="badge badge-blue">情感共鸣 · 儿童节</span></div>
+                    <div class="content">"昨天儿童节，朋友圈都在晒娃 🎈 其实最好的礼物不是玩具，而是让孩子发现'我能解决问题'的成就感。数学思维就是这样一份长期礼物"</div>
+                    <div class="tip">配图建议：孩子开心解题/亲子互动场景 | 跟进话术：对点赞家长私聊"儿童节快乐～最近孩子学习状态怎么样？"</div>
+                </div>
+                <div class="schedule-card">
+                    <div class="time">周三 6/4 12:00</div>
+                    <div class="type"><span class="badge badge-green">产品价值</span></div>
+                    <div class="content">"6月了，暑假前最后一个月 📐 现在正是查漏补缺的黄金期——呈分试刚考完的孩子，趁热打铁把薄弱环节补上，暑假才能真正进阶"</div>
+                    <div class="tip">配图建议：学习规划时间轴图 | 跟进话术：对评论家长推荐暑期课程测评</div>
+                </div>
+                <div class="schedule-card">
+                    <div class="time">周四 6/5 17:00</div>
+                    <div class="type"><span class="badge badge-red">续费</span></div>
+                    <div class="content">"有家长问我：暑假要不要继续上课？我的建议是——暑假恰恰是拉开差距的时候 💡 坚持的孩子开学后明显不一样，思维流畅度肉眼可见的提升"</div>
+                    <div class="tip">配图建议：学员前后对比/进步数据 | 跟进话术：对点赞家长发送暑期续费方案+早鸟优惠</div>
+                </div>
+                <div class="schedule-card">
+                    <div class="time">周五 6/6 10:00</div>
+                    <div class="type"><span class="badge badge-purple">转介绍</span></div>
+                    <div class="content">"最近好几位家长跟我说，是朋友推荐来的 🤝 口碑是最好的广告～如果你身边也有为孩子数学发愁的朋友，欢迎推荐体验，老学员推荐有专属福利哦"</div>
+                    <div class="tip">配图建议：转介绍福利海报 | 跟进话术：对互动家长私发转介绍链接+具体福利说明</div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>第2周（6/9-6/13）<span class="badge badge-green">暑假预热</span></h2>
+                <div class="schedule-card">
+                    <div class="time">周一 6/9 08:30</div>
+                    <div class="type"><span class="badge badge-blue">情感共鸣</span></div>
+                    <div class="content">"跟一位妈妈聊天，她说'我不求孩子考第一，只希望他遇到难题不放弃' 🌱 这不就是数学思维训练的意义吗——不是为了分数，是为了面对困难时的那份从容"</div>
+                    <div class="tip">配图建议：温馨文字卡片 | 跟进话术：对点赞家长私聊"你对孩子数学学习最大的期望是什么？"</div>
+                </div>
+                <div class="schedule-card">
+                    <div class="time">周三 6/11 12:00</div>
+                    <div class="type"><span class="badge badge-red">续费</span></div>
+                    <div class="content">"暑期课程安排出来了 📋 老学员专属：6月底前续费暑期课，享早鸟价+赠送2节思维拓展课。名额有限，需要的家长私信我锁定位置"</div>
+                    <div class="tip">配图建议：暑期课程表/早鸟优惠海报 | 跟进话术：对互动家长发送具体课表+价格方案</div>
+                </div>
+                <div class="schedule-card">
+                    <div class="time">周五 6/13 10:00</div>
+                    <div class="type"><span class="badge badge-purple">转介绍</span></div>
+                    <div class="content">"上周有位家长推荐了3位朋友来试听，结果3位都报名了 😊 她说'好东西就是要分享'。老学员推荐新学员，双方都有课时礼包，暑假一起学更有伴~"</div>
+                    <div class="tip">配图建议：转介绍成功案例/双方福利说明 | 跟进话术：对点赞家长私发推荐链接</div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>第3周（6/16-6/20）<span class="badge badge-red">618活动专题</span></h2>
+                <div class="schedule-card">
+                    <div class="time">周一 6/16 08:30</div>
+                    <div class="type"><span class="badge badge-green">产品价值 · 618预热</span></div>
+                    <div class="content">"618来了，别只顾着囤日用品 🛒 孩子的学习投资才是最值得'剁手'的！本周三开始，数学思维课年度最大优惠，错过等明年"</div>
+                    <div class="tip">配图建议：618活动预告海报 | 跟进话术：对评论家长私发活动详情+预约名额</div>
+                </div>
+                <div class="schedule-card">
+                    <div class="time">周三 6/18 09:00</div>
+                    <div class="type"><span class="badge badge-red">续费 · 618当天</span></div>
+                    <div class="content">"🔥 618限时特惠来了！暑期+秋季连报直降XXX元，再送竞赛备考礼包。今天下单的前20位还有额外惊喜～犹豫的家长抓紧，优惠今晚24点截止"</div>
+                    <div class="tip">配图建议：618活动主海报/倒计时 | 跟进话术：对所有近期咨询过的家长群发活动提醒</div>
+                </div>
+                <div class="schedule-card">
+                    <div class="time">周四 6/19 12:00</div>
+                    <div class="type"><span class="badge badge-orange">互动福利 · 618返场</span></div>
+                    <div class="content">"昨天618活动太火爆，好多家长说没来得及 😅 跟公司申请了最后24小时返场名额！还没下单的家长私信我，帮你锁定最后的优惠价"</div>
+                    <div class="tip">配图建议：返场倒计时海报 | 跟进话术：对昨天点赞但未购买的家长逐一私聊</div>
+                </div>
+                <div class="schedule-card">
+                    <div class="time">周五 6/20 17:00</div>
+                    <div class="type"><span class="badge badge-purple">转介绍 · 618联动</span></div>
+                    <div class="content">"618期间转介绍福利加码！老学员推荐成功，双方各得XX课时 🎁 有朋友家孩子也想学数学的，现在推荐最划算，活动本周末截止"</div>
+                    <div class="tip">配图建议：转介绍加码福利海报 | 跟进话术：对活跃家长私发专属推荐海报</div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>第4周（6/23-6/27）<span class="badge badge-blue">暑假倒计时</span></h2>
+                <div class="schedule-card">
+                    <div class="time">周一 6/23 08:30</div>
+                    <div class="type"><span class="badge badge-green">产品价值</span></div>
+                    <div class="content">"还有一周就放暑假了 ☀️ 每年暑假都是思维能力拉开差距的关键期。提前规划好学习节奏，开学后你会感谢现在的自己"</div>
+                    <div class="tip">配图建议：暑假学习规划模板图 | 跟进话术：对评论家长发送暑期课程安排表</div>
+                </div>
+                <div class="schedule-card">
+                    <div class="time">周三 6/25 12:00</div>
+                    <div class="type"><span class="badge badge-orange">学员成果</span></div>
+                    <div class="content">"分享一个让我特别感动的瞬间 🌟 S5的小朋友上学期还说'我最讨厌数学'，这学期主动跟妈妈说想挑战袋鼠数学竞赛。思维训练改变的不只是成绩，是孩子面对困难的态度"</div>
+                    <div class="tip">配图建议：学员成长故事卡片（脱敏） | 跟进话术：对点赞家长聊孩子近期变化</div>
+                </div>
+                <div class="schedule-card">
+                    <div class="time">周四 6/26 17:00</div>
+                    <div class="type"><span class="badge badge-red">续费</span></div>
+                    <div class="content">"暑期课最后一波报名 📢 本周五截止！已报名的家长课表已发，还没确定的抓紧私信我，帮孩子选最合适的时段和阶段"</div>
+                    <div class="tip">配图建议：暑期课倒计时海报 | 跟进话术：对未续费家长逐一私聊确认意向</div>
+                </div>
+                <div class="schedule-card">
+                    <div class="time">周五 6/27 10:00</div>
+                    <div class="type"><span class="badge badge-purple">转介绍</span></div>
+                    <div class="content">"暑假快到了，身边有朋友在纠结暑假给孩子报什么班吗？🤔 数学思维课免费体验名额还有最后几个，推荐朋友来试听，双方都有惊喜福利~"</div>
+                    <div class="tip">配图建议：暑期体验课+转介绍福利海报 | 跟进话术：对互动家长私发推荐专属链接</div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>第5周（6/30）<span class="badge badge-green">月末收官</span></h2>
+                <div class="schedule-card">
+                    <div class="time">周一 6/30 08:30</div>
+                    <div class="type"><span class="badge badge-blue">情感共鸣</span></div>
+                    <div class="content">"6月最后一天，明天就正式放暑假了 🎒 不管这学期成绩如何，孩子们都辛苦了。暑假是充电的好时机，劳逸结合，用对方法，下学期一定更好"</div>
+                    <div class="tip">配图建议：温馨鼓励文字卡 | 跟进话术：对点赞家长私聊确认暑期课安排</div>
+                </div>
+            </div>
+        </div>
+        <div id="tab-west" class="tab-content" style="display:none;">
+            <div class="section">
+                <h2>6月排期总览 <span class="badge badge-blue">欧美澳</span></h2>
+                <p style="color:#64748b;margin-bottom:12px;">节奏：每周2-3条内容帖 + 1条续费 + 1条转介绍 | 重点节点：学年收尾、暑假规划、618优惠</p>
+            </div>
+
+            <div class="section">
+                <h2>第1周（6/2-6/6）<span class="badge badge-green">学年收尾</span></h2>
+                <div class="schedule-card">
+                    <div class="time">周一 6/2 09:00</div>
+                    <div class="type"><span class="badge badge-blue">情感共鸣</span></div>
+                    <div class="content">"Last few weeks of school! 📚 不管report card怎样，这一年孩子的每一点进步都值得被看见。比起分数，我更关注：他遇到难题还愿不愿意试一试"</div>
+                    <div class="tip">配图建议：孩子学习成长瞬间 | 跟进话术：对点赞家长私聊"这学期孩子数学方面有什么变化？"</div>
+                </div>
+                <div class="schedule-card">
+                    <div class="time">周三 6/4 10:30</div>
+                    <div class="type"><span class="badge badge-green">产品价值</span></div>
+                    <div class="content">"Summer slide is real 📉 研究显示暑假后孩子平均退步2个月的数学水平。好消息是：每天15分钟的思维训练就能防止滑坡，还能让开学后领先一步"</div>
+                    <div class="tip">配图建议：Summer Slide数据图/信息图 | 跟进话术：对评论家长推荐暑期课程方案</div>
+                </div>
+                <div class="schedule-card">
+                    <div class="time">周五 6/6 09:00</div>
+                    <div class="type"><span class="badge badge-red">续费</span></div>
+                    <div class="content">"暑期课程安排出来了 ☀️ 时间灵活，每周2-3次，不影响夏令营和family trip。老学员续费暑期课享早鸟优惠，需要的家长私信我看课表"</div>
+                    <div class="tip">配图建议：暑期课时间表/灵活排课示意 | 跟进话术：对互动家长发送具体课表+优惠方案</div>
+                </div>
+                <div class="schedule-card">
+                    <div class="time">周六 6/7 08:00</div>
+                    <div class="type"><span class="badge badge-purple">转介绍</span></div>
+                    <div class="content">"好几位新学员都是老学员推荐来的 🤝 'My friend's kid improved so much!'——口碑是最好的证明。推荐朋友试听，双方都有课时福利~"</div>
+                    <div class="tip">配图建议：转介绍双方福利海报 | 跟进话术：对活跃家长私发推荐链接</div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>第2周（6/9-6/13）<span class="badge badge-orange">暑假规划</span></h2>
+                <div class="schedule-card">
+                    <div class="time">周二 6/10 09:00</div>
+                    <div class="type"><span class="badge badge-green">产品价值</span></div>
+                    <div class="content">"很多家长问我：暑假数学怎么安排？🤔 我的建议是'少量高频'——每天15-20分钟思维训练，比集中刷题效果好10倍。关键是保持思维活跃度，而不是增加负担"</div>
+                    <div class="tip">配图建议：暑假学习节奏建议图 | 跟进话术：对评论家长发送暑期学习规划模板</div>
+                </div>
+                <div class="schedule-card">
+                    <div class="time">周四 6/12 10:30</div>
+                    <div class="type"><span class="badge badge-red">续费</span></div>
+                    <div class="content">"暑期班early bird优惠本周截止 ⏰ 已经有XX位老学员锁定了暑期课位置。课程时间灵活，可以配合你们的vacation计划来排。还没确定的家长私信我~"</div>
+                    <div class="tip">配图建议：早鸟优惠倒计时海报 | 跟进话术：对未续费家长逐一私聊确认意向</div>
+                </div>
+                <div class="schedule-card">
+                    <div class="time">周六 6/14 08:00</div>
+                    <div class="type"><span class="badge badge-purple">转介绍</span></div>
+                    <div class="content">"Summer is coming! 身边有朋友在找暑假数学课吗？☀️ 推荐朋友来免费试听一节，体验我们的思维训练方式。推荐成功双方各得课时奖励，暑假一起进步~"</div>
+                    <div class="tip">配图建议：暑期试听+转介绍福利海报 | 跟进话术：对互动家长私发推荐专属链接</div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>第3周（6/16-6/20）<span class="badge badge-red">618活动专题</span></h2>
+                <div class="schedule-card">
+                    <div class="time">周一 6/16 09:00</div>
+                    <div class="type"><span class="badge badge-green">产品价值 · 618预热</span></div>
+                    <div class="content">"618 Education Sale coming! 📚 一年一次的学习投资好时机——数学思维课年度最大优惠，暑期+秋季连报更划算。周三正式开始，先私信我了解详情"</div>
+                    <div class="tip">配图建议：618预告海报（英文+中文） | 跟进话术：对评论家长私发活动详情</div>
+                </div>
+                <div class="schedule-card">
+                    <div class="time">周三 6/18 09:00</div>
+                    <div class="type"><span class="badge badge-red">续费 · 618当天</span></div>
+                    <div class="content">"🔥 618 Special! 暑期+秋季连报立减XXX，再送思维拓展课包。今天下单还有额外bonus～这是全年最好的价格，需要的家长抓紧私信我"</div>
+                    <div class="tip">配图建议：618主活动海报 | 跟进话术：对所有咨询过的家长群发活动提醒</div>
+                </div>
+                <div class="schedule-card">
+                    <div class="time">周五 6/20 09:00</div>
+                    <div class="type"><span class="badge badge-purple">转介绍 · 618联动</span></div>
+                    <div class="content">"618期间推荐福利double! 🎁 老学员推荐新学员报名，双方各得XX课时+学习礼包。好课值得分享，和朋友一起给孩子最好的暑假安排~"</div>
+                    <div class="tip">配图建议：618转介绍加码海报 | 跟进话术：对活跃家长私发专属推荐海报</div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>第4周（6/23-6/27）<span class="badge badge-blue">暑假启动</span></h2>
+                <div class="schedule-card">
+                    <div class="time">周一 6/23 09:00</div>
+                    <div class="type"><span class="badge badge-blue">情感共鸣</span></div>
+                    <div class="content">"School's almost out! 🎉 孩子们辛苦了一整年。暑假是放松的时间，也是quietly grow的好时机——不用赶进度，按自己的节奏探索数学的乐趣"</div>
+                    <div class="tip">配图建议：轻松愉快的学习场景 | 跟进话术：对点赞家长聊暑假安排</div>
+                </div>
+                <div class="schedule-card">
+                    <div class="time">周三 6/25 10:30</div>
+                    <div class="type"><span class="badge badge-orange">学员成果</span></div>
+                    <div class="content">"Year-end highlight 🌟 这学期有位学员从'I hate math'变成了主动要求加课。妈妈说'他现在把数学题当puzzle来玩'。这就是思维训练的魔力——让数学变得有趣"</div>
+                    <div class="tip">配图建议：学员成长故事卡片（脱敏） | 跟进话术：对点赞家长聊孩子的变化</div>
+                </div>
+                <div class="schedule-card">
+                    <div class="time">周五 6/27 09:00</div>
+                    <div class="type"><span class="badge badge-red">续费</span></div>
+                    <div class="content">"暑期课下周正式开始 📅 最后几个名额！已报名的家长课表已发到私信，还没确定的这周末是最后机会了，私信我帮孩子安排最合适的时段"</div>
+                    <div class="tip">配图建议：暑期课最后名额倒计时 | 跟进话术：对未续费家长做最后一轮沟通</div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>第5周（6/30）<span class="badge badge-green">月末收官</span></h2>
+                <div class="schedule-card">
+                    <div class="time">周一 6/30 09:00</div>
+                    <div class="type"><span class="badge badge-blue">情感共鸣</span></div>
+                    <div class="content">"Happy Summer! ☀️ 新的一个月，新的开始。暑假第一周，帮孩子建立一个小小的daily routine——哪怕只是每天一道趣味题，坚持下来就是了不起的习惯"</div>
+                    <div class="tip">配图建议：暑假daily routine建议图 | 跟进话术：对点赞家长发送暑期学习打卡计划</div>
+                </div>
+            </div>
+        </div>
+        <div id="tab-common" class="tab-content" style="display:none;">
+            <div class="section">
+                <h2>产品价值类（两地区通用，调整话术风格）</h2>
+                <table>
+                    <thead><tr><th>选题</th><th>港澳台话术方向</th><th>欧美澳话术方向</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>数学思维vs刷题</strong></td><td class="copy-text">"不是刷更多题，而是学会举一反三"</td><td class="copy-text">"Math isn't about memorizing, it's about thinking"</td></tr>
+                        <tr><td><strong>阶段升级价值</strong></td><td class="copy-text">"升阶=难度匹配，不浪费孩子的时间"</td><td class="copy-text">"Right level = right challenge = real growth"</td></tr>
+                        <tr><td><strong>在线课优势</strong></td><td class="copy-text">"省去通勤，在家就能上名师课"</td><td class="copy-text">"Flexible scheduling, no commute, global teachers"</td></tr>
+                        <tr><td><strong>1对1关注</strong></td><td class="copy-text">"老师看得到每个孩子的卡点"</td><td class="copy-text">"Personalized attention your child deserves"</td></tr>
+                        <tr><td><strong>S9小升初衔接</strong></td><td class="copy-text">"初中数学思维跨越，提前准备不慌"</td><td class="copy-text">"Middle school math jump: bridge the gap now"</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="section">
+                <h2>学员成果类</h2>
+                <table>
+                    <thead><tr><th>选题</th><th>切入角度</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>竞赛获奖</strong></td><td>学员参加袋鼠数学/AMC获奖分享</td></tr>
+                        <tr><td><strong>阶段升级</strong></td><td>学员从SX升到SY的成长故事</td></tr>
+                        <tr><td><strong>思维突破</strong></td><td>"从不会到会"的具体案例</td></tr>
+                        <tr><td><strong>家长反馈</strong></td><td>家长真实好评截图（需脱敏）</td></tr>
+                        <tr><td><strong>学习习惯</strong></td><td>坚持打卡X天的学员表扬</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="section">
+                <h2>互动福利类</h2>
+                <table>
+                    <thead><tr><th>选题</th><th>互动形式</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>数学小挑战</strong></td><td>发一道趣味题，评论区答题</td></tr>
+                        <tr><td><strong>学习tips</strong></td><td>每周一个数学学习小技巧</td></tr>
+                        <tr><td><strong>免费试听</strong></td><td>限时体验课名额</td></tr>
+                        <tr><td><strong>学习资料</strong></td><td>竞赛真题/思维训练PDF领取</td></tr>
+                        <tr><td><strong>打卡活动</strong></td><td>21天数学思维打卡挑战</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div id="tab-rules" class="tab-content" style="display:none;">
+            <div class="section">
+                <h2>内容禁忌清单</h2>
+                <p style="color:#64748b;margin-bottom:16px;">以下内容在任何地区的朋友圈中均不得出现，请严格规避。</p>
+                <div class="warn-card">
+                    <h4>宗教类</h4>
+                    <p>圣诞节宗教含义、复活节宗教意义、佛诞、斋月、教堂/寺庙相关内容等。<br><em>注：万圣节、感恩节可作为趣味话题切入（南瓜数学、感恩成长），但不涉及宗教起源。</em></p>
+                </div>
+                <div class="warn-card">
+                    <h4>政治类</h4>
+                    <p>两岸关系、地区选举、政策评论、国旗国歌、政党相关、领土争议等一切政治话题。</p>
+                </div>
+                <div class="warn-card">
+                    <h4>争议教育观</h4>
+                    <p>贬低公立/私立学校、批评某地教育制度、暗示某种教育方式"唯一正确"。</p>
+                </div>
+                <div class="warn-card">
+                    <h4>地域歧视</h4>
+                    <p>暗示某地区教育水平高低、对比地区学生能力、使用地域刻板印象。</p>
+                </div>
+                <div class="warn-card">
+                    <h4>过度焦虑制造</h4>
+                    <p>"不学就落后""别人都在卷""再不报名就来不及了"等贩卖焦虑的表达。<br><em>正确做法：用正向激励替代焦虑制造，如"每天进步一点点"。</em></p>
+                </div>
+                <div class="warn-card">
+                    <h4>虚假承诺</h4>
+                    <p>"保证提分""100%升学""学了就能考上名校"等无法兑现的承诺。<br><em>正确做法：用真实案例和数据说话，如"XX%的学员在升阶后成绩有提升"。</em></p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>安全话题参考</h2>
+                <div class="tip-card">
+                    <strong>节日可用方式：</strong>仅作为时间锚点和趣味元素使用<br>
+                    <ul style="margin-top:8px;padding-left:20px;">
+                        <li>万圣节 → "南瓜里的几何秘密"（趣味数学）</li>
+                        <li>感恩节 → "感恩成长，看看孩子这学期的进步"（正向回顾）</li>
+                        <li>新年 → "新年新目标"（学习规划）</li>
+                        <li>暑假 → "暑假黄金期"（学习安排）</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+<script>
+document.querySelectorAll('.tab-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        document.querySelectorAll('.tab-content').forEach(c => { c.style.display = 'none'; c.classList.remove('active'); });
+        btn.classList.add('active');
+        const tab = document.getElementById('tab-' + btn.dataset.tab);
+        tab.style.display = 'block';
+        tab.classList.add('active');
+    });
+});
+</script>
+</body>
+</html>
