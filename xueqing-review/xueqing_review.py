@@ -1,26 +1,52 @@
 #!/usr/bin/env python3
 """学情总结抽查分析 - 按老师维度抽样、模板匹配、同质化评估.
 
+支持完整端到端流程:
+  --download           调用 export_report.py 重新从 BI 下载数据
+  --monthly            按当月维度过滤(学情总结创建时间 ∈ [当月1号, end_date])
+  --end-date           过滤截止日期, 默认今天
+  --pool               当月协作池标签, 用于 BI 筛选
+  --broadcast          抽查完成后将结果摘要发送到钉钉群
+
 Usage:
+    # 端到端: 下载 + 当月过滤 + 抽查 + 播报
+    python3 xueqing_review.py --download --monthly --broadcast --sample 5
+
+    # 仅抽查现有文件
     python3 xueqing_review.py --input <input.xlsx> --output <output.xlsx> [--sample 20] [--seed 42]
 """
 
 import argparse
+import json
+import os
+import subprocess
+import sys
+import urllib.request
 import pandas as pd
 import re
 import random
 from difflib import SequenceMatcher
 from pathlib import Path
-from datetime import datetime
+from datetime import date, datetime
 import openpyxl
 from openpyxl.styles import Font, PatternFill, Alignment, Border, Side
 from openpyxl.utils import get_column_letter
 
+try:
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+    sys.stderr.reconfigure(encoding="utf-8", errors="replace")
+except Exception:
+    pass
+
 # ══════════════════════════════════════════════════════════════════
 # 默认配置
 # ══════════════════════════════════════════════════════════════════
-DEFAULT_INPUT = Path(r"C:/Users/fengjianyi/Desktop/教学协作/学情抽查/教学&学管协作跟进明细.xlsx")
-DEFAULT_OUTPUT = Path(r"C:/Users/fengjianyi/Desktop/教学协作/学情抽查/学情总结抽查结果.xlsx")
+WORKDIR = Path(r"C:/Users/fengjianyi/Desktop/教学协作/学情抽查")
+DEFAULT_INPUT = WORKDIR / "教学&学管协作跟进明细.xlsx"
+DEFAULT_OUTPUT = WORKDIR / "学情总结抽查结果.xlsx"
+EXPORT_SCRIPT = WORKDIR / "export_report.py"
+SECRETS_ENV = Path.home() / ".claude" / "secrets" / "intro_monitor.env"
+DEFAULT_POOL = "（益智）海外学管2026年5月协作池-豌豆-6月服务池"
 DEFAULT_SAMPLE = 20
 DEFAULT_SEED = 42
 HEADER_ROW = 9  # 数据表头所在行（第10行，索引9）
@@ -204,20 +230,178 @@ def evaluate_homogeneity(texts: list) -> dict:
 
 
 # ══════════════════════════════════════════════════════════════════
+# 端到端流程辅助函数（下载 / 月份过滤 / 钉钉播报）
+# ══════════════════════════════════════════════════════════════════
+def _run_export(end_date: str, pool: str) -> int:
+    """调用 export_report.py 重新从 BI 下载报表."""
+    print("=" * 60)
+    print(f"[Step] 通过 BI 重新下载报表 (截止 {end_date})")
+    print("=" * 60)
+    if not EXPORT_SCRIPT.exists():
+        print(f"⚠ 未找到 {EXPORT_SCRIPT}，跳过下载")
+        return 1
+    cmd = [sys.executable, str(EXPORT_SCRIPT), "--end-date", end_date, "--pool", pool]
+    print(f"运行: {' '.join(cmd)}")
+    result = subprocess.run(cmd, cwd=str(WORKDIR))
+    if result.returncode != 0:
+        print(f"⚠ export_report.py 退出码 {result.returncode}，将尝试用已有文件继续")
+    return result.returncode
+
+
+def _filter_monthly(raw_file: Path, end_date: str) -> Path:
+    """按 学情总结创建时间 ∈ [当月1号, end_date] 过滤记录,落到临时 xlsx,
+    并保持 skill 期望的 9 行表头空白 + 第 10 行表头布局。"""
+    print("=" * 60)
+    print(f"[Step] 按当月过滤: {end_date[:7]}-01 ~ {end_date}")
+    print("=" * 60)
+    if not raw_file.exists():
+        raise FileNotFoundError(f"原始文件不存在: {raw_file}")
+
+    end_dt = pd.Timestamp(end_date) + pd.Timedelta(days=1)
+    start_dt = pd.Timestamp(end_date[:7] + "-01")
+
+    df = pd.read_excel(raw_file, header=HEADER_ROW, engine="openpyxl")
+    print(f"  原始行数: {len(df)}")
+
+    df["_xq_time"] = pd.to_datetime(df[XUEQING_TIME_COL], errors="coerce")
+    mask = df["_xq_time"].between(start_dt, end_dt, inclusive="left") & df[XUEQING_COL].notna()
+    filtered = df[mask].drop(columns=["_xq_time"]).copy()
+    print(f"  当月有学情总结的记录: {len(filtered)}")
+
+    out = WORKDIR / f"教学&学管协作跟进明细_当月_{end_date}.xlsx"
+    wb = openpyxl.Workbook()
+    ws = wb.active
+    for _ in range(HEADER_ROW):
+        ws.append([])
+    ws.append(list(filtered.columns))
+    for row in filtered.itertuples(index=False):
+        ws.append([
+            v if not (isinstance(v, float) and pd.isna(v)) else None
+            for v in row
+        ])
+    wb.save(out)
+    print(f"  落地文件: {out}")
+    return out
+
+
+def _load_webhook_url() -> str | None:
+    """从 ~/.claude/secrets/intro_monitor.env 读取 DINGTALK_WEBHOOK_URL."""
+    if not SECRETS_ENV.exists():
+        return None
+    for line in SECRETS_ENV.read_text(encoding="utf-8").splitlines():
+        line = line.strip()
+        if not line or line.startswith("#") or "=" not in line:
+            continue
+        k, v = line.split("=", 1)
+        if k.strip() == "DINGTALK_WEBHOOK_URL":
+            return v.strip().strip('"').strip("'")
+    return None
+
+
+def _broadcast_to_dingtalk(results: list, end_date: str) -> bool:
+    """把抽查结果汇总以 markdown 形式发送到钉钉群（仅播报结果）."""
+    webhook = _load_webhook_url()
+    if not webhook:
+        print("⚠ 未配置 DINGTALK_WEBHOOK_URL（~/.claude/secrets/intro_monitor.env），跳过播报")
+        return False
+
+    grade_counts = {"优秀": 0, "合格": 0, "不合格": 0}
+    for r in results:
+        if r["final_grade"] in grade_counts:
+            grade_counts[r["final_grade"]] += 1
+
+    title = f"学情总结抽查结果（截止 {end_date}）"
+    lines = [
+        f"## {title}",
+        "",
+        f"- 抽样老师数量：**{len(results)}** 位",
+        f"- 优秀：<font color=\"#52C41A\">**{grade_counts['优秀']}**</font> | "
+        f"合格：<font color=\"#FAAD14\">**{grade_counts['合格']}**</font> | "
+        f"不合格：<font color=\"#FF4D4F\">**{grade_counts['不合格']}**</font>",
+        "",
+        "### 评级明细",
+        "",
+        "| 老师 | 艺名 | 学情总结 | 符合数 | 评级 | 评估说明 |",
+        "| --- | --- | --- | --- | --- | --- |",
+    ]
+    for r in results:
+        grade = r["final_grade"]
+        if grade == "优秀":
+            grade_md = f"<font color=\"#52C41A\">**{grade}**</font>"
+        elif grade == "不合格":
+            grade_md = f"<font color=\"#FF4D4F\">**{grade}**</font>"
+        else:
+            grade_md = f"<font color=\"#FAAD14\">**{grade}**</font>"
+        reason = (r["final_reason"] or "").replace("|", "/").replace("\n", " ")
+        if len(reason) > 60:
+            reason = reason[:60] + "…"
+        lines.append(
+            f"| {r['teacher']} | {r['art_name']} | {r['total_entries']} | "
+            f"{r['matched_entries']} | {grade_md} | {reason} |"
+        )
+
+    payload = {
+        "msgtype": "markdown",
+        "markdown": {"title": title, "text": "\n".join(lines)},
+    }
+    data = json.dumps(payload, ensure_ascii=False).encode("utf-8")
+    req = urllib.request.Request(
+        webhook,
+        data=data,
+        headers={"Content-Type": "application/json; charset=utf-8"},
+        method="POST",
+    )
+    try:
+        with urllib.request.urlopen(req, timeout=15) as resp:
+            body = resp.read().decode("utf-8", errors="replace")
+        result = json.loads(body) if body else {}
+        if result.get("errcode", 0) == 0:
+            print(f"✅ 已播报到钉钉群（{len(results)} 位老师）")
+            return True
+        print(f"⚠ 钉钉返回: {body}")
+        return False
+    except Exception as e:
+        print(f"⚠ 钉钉播报失败: {e}")
+        return False
+
+
+# ══════════════════════════════════════════════════════════════════
 # 主流程
 # ══════════════════════════════════════════════════════════════════
 def main():
+    today = date.today().isoformat()
     parser = argparse.ArgumentParser(description="学情总结抽查分析")
     parser.add_argument("--input", default=str(DEFAULT_INPUT), help="输入Excel路径")
-    parser.add_argument("--output", default=str(DEFAULT_OUTPUT), help="输出Excel路径")
+    parser.add_argument("--output", default="", help="输出Excel路径（默认按日期生成）")
     parser.add_argument("--sample", type=int, default=DEFAULT_SAMPLE, help="抽样老师数量")
     parser.add_argument("--seed", type=int, default=DEFAULT_SEED, help="随机种子")
+    parser.add_argument("--end-date", default=today, help="过滤截止日期 YYYY-MM-DD,默认今天")
+    parser.add_argument("--pool", default=DEFAULT_POOL, help="当月协作池标签,用于 BI 筛选")
+    parser.add_argument("--download", action="store_true", help="先调用 export_report.py 重新下载")
+    parser.add_argument("--monthly", action="store_true", help="按当月维度过滤(学情总结创建时间)")
+    parser.add_argument("--broadcast", action="store_true", help="抽查完成后播报到钉钉群")
     args = parser.parse_args()
 
-    input_file = Path(args.input)
-    output_file = Path(args.output)
+    end_date = args.end_date
     sample_size = args.sample
     random.seed(args.seed)
+
+    # 0. 可选: 重新下载
+    if args.download:
+        _run_export(end_date, args.pool)
+
+    # 0.5 可选: 按当月过滤
+    if args.monthly:
+        input_file = _filter_monthly(Path(args.input), end_date)
+    else:
+        input_file = Path(args.input)
+
+    if args.output:
+        output_file = Path(args.output)
+    elif args.monthly:
+        output_file = WORKDIR / f"学情总结抽查结果_当月_{end_date}.xlsx"
+    else:
+        output_file = DEFAULT_OUTPUT
 
     print("=" * 60)
     print("学情总结抽查分析")
@@ -302,28 +486,29 @@ def main():
         # 评估同质化
         homogeneity = evaluate_homogeneity(valid_texts)
 
-        # 综合评级
-        if all_invalid:
-            final_grade = "不及格"
-            final_reason = "所有学情总结均不符合模板要求，疑似课后反馈内容"
-        elif all_matched:
-            if homogeneity["level"] in ("优秀", "仅1条"):
+        # 综合评级（3级评分）
+        #   不合格: 所有学情总结结构和内容都不符合模板
+        #   优秀:   同一老师所有学情总结都符合模板,且每个学生的内容都做到了差异化
+        #   合格:   其他情况(部分符合,或全部符合但内容雷同)
+        matched_count = sum(1 for e in entry_results if e["matched"])
+        total_count = len(entry_results)
+
+        if matched_count == 0:
+            final_grade = "不合格"
+            final_reason = f"所有学情总结结构和内容都不符合模板（0/{total_count}条匹配）"
+        elif matched_count == total_count:
+            if total_count >= 2 and homogeneity["avg_similarity"] < 0.35:
                 final_grade = "优秀"
+                final_reason = f"全部 {total_count} 条均符合模板，且每个学生内容差异化良好（平均相似度 {homogeneity['avg_similarity']:.0%}）"
+            elif total_count == 1:
+                final_grade = "合格"
+                final_reason = "仅 1 条学情总结，符合模板（无法评估差异化）"
             else:
-                final_grade = "及格"
-            final_reason = f"符合模板 + {homogeneity['reason']}"
+                final_grade = "合格"
+                final_reason = f"全部 {total_count} 条均符合模板，但内容差异化不足（平均相似度 {homogeneity['avg_similarity']:.0%}）"
         else:
-            matched_count = sum(1 for e in entry_results if e["matched"])
-            total_count = len(entry_results)
-            if matched_count / total_count >= 0.5:
-                if homogeneity["level"] in ("优秀", "仅1条"):
-                    final_grade = "及格（部分不符合）"
-                else:
-                    final_grade = "及格"
-                final_reason = f"部分符合模板（{matched_count}/{total_count}条），{homogeneity['reason']}"
-            else:
-                final_grade = "不及格"
-                final_reason = f"大部分不符合模板（仅{matched_count}/{total_count}条符合），内容疑似课后反馈"
+            final_grade = "合格"
+            final_reason = f"部分符合模板（{matched_count}/{total_count} 条），{homogeneity['reason']}"
 
         teacher_result = {
             "teacher": teacher,
@@ -356,7 +541,12 @@ def main():
     _write_excel(results, valid_df, output_file)
 
     print("\n✅ 分析完成!")
-    return OUTPUT_FILE
+
+    if args.broadcast:
+        print("\n[7] 播报抽查结果到钉钉群...")
+        _broadcast_to_dingtalk(results, end_date)
+
+    return output_file
 
 
 # ══════════════════════════════════════════════════════════════════
@@ -428,12 +618,12 @@ def _write_excel(results: list, original_df: pd.DataFrame, output_file: Path):
         grade_cell = ws1.cell(row=row_idx, column=10, value=r["final_grade"])
         grade_cell.font = BOLD_FONT
         grade_cell.alignment = Alignment(horizontal="center")
-        if "优秀" in r["final_grade"]:
+        if r["final_grade"] == "优秀":
             grade_cell.fill = GREEN_FILL
-        elif "及格" in r["final_grade"]:
-            grade_cell.fill = YELLOW_FILL
-        elif "不及格" in r["final_grade"]:
+        elif r["final_grade"] == "不合格":
             grade_cell.fill = RED_FILL
+        elif r["final_grade"] == "合格":
+            grade_cell.fill = YELLOW_FILL
 
         ws1.cell(row=row_idx, column=11, value=r["final_reason"]).font = BODY_FONT
         ws1.cell(row=row_idx, column=11).alignment = WRAP_ALIGN
@@ -446,11 +636,12 @@ def _write_excel(results: list, original_df: pd.DataFrame, output_file: Path):
     ws1.cell(row=stats_row, column=1, value="统计").font = BOLD_FONT
     ws1.cell(row=stats_row, column=2, value=f"共 {len(results)} 位老师").font = BOLD_FONT
 
-    grade_counts = {}
+    grade_counts = {"优秀": 0, "合格": 0, "不合格": 0}
     for r in results:
-        g = "优秀" if "优秀" in r["final_grade"] else ("及格" if "及格" in r["final_grade"] else "不及格")
-        grade_counts[g] = grade_counts.get(g, 0) + 1
-    ws1.cell(row=stats_row, column=3, value=f"优秀: {grade_counts.get('优秀', 0)} | 及格: {grade_counts.get('及格', 0)} | 不及格: {grade_counts.get('不及格', 0)}").font = BOLD_FONT
+        g = r["final_grade"]
+        if g in grade_counts:
+            grade_counts[g] += 1
+    ws1.cell(row=stats_row, column=3, value=f"优秀: {grade_counts['优秀']} | 合格: {grade_counts['合格']} | 不合格: {grade_counts['不合格']}").font = BOLD_FONT
 
     # 列宽
     col_widths = [6, 12, 15, 12, 12, 10, 18, 15, 12, 15, 50]
@@ -500,12 +691,12 @@ def _write_excel(results: list, original_df: pd.DataFrame, output_file: Path):
 
             grade_cell = ws2.cell(row=row_num, column=11, value=r["final_grade"])
             grade_cell.font = BOLD_FONT
-            if "优秀" in r["final_grade"]:
+            if r["final_grade"] == "优秀":
                 grade_cell.fill = GREEN_FILL
-            elif "及格" in r["final_grade"]:
-                grade_cell.fill = YELLOW_FILL
-            elif "不及格" in r["final_grade"]:
+            elif r["final_grade"] == "不合格":
                 grade_cell.fill = RED_FILL
+            elif r["final_grade"] == "合格":
+                grade_cell.fill = YELLOW_FILL
 
             for col_idx in range(1, 12):
                 ws2.cell(row=row_num, column=col_idx).border = THIN_BORDER
@@ -529,9 +720,9 @@ def _write_excel(results: list, original_df: pd.DataFrame, output_file: Path):
         ["s1-3阶段", "学员兴趣：专注力、记忆犹新、学习兴趣/课堂活跃度、较好知识点、提升知识点、家长痛点、未续费顾虑点"],
         ["s4-6阶段", "学员习惯：学习习惯、记忆犹新、笔记草稿、较好知识点、提升知识点、家长痛点、未续费顾虑点"],
         ["s7-9阶段", "学员成绩：校内成绩、较好知识点、提升知识点、学习习惯、记忆犹新、家长痛点、未续费顾虑点"],
-        ["评级-优秀", "符合模板要求 + 同质化程度低（平均相似度<35%，每条学情总结都有个性化内容）"],
-        ["评级-及格", "符合模板要求 + 同质化程度高（平均相似度≥35%，多条内容有重复）"],
-        ["评级-不及格", "发送内容不符合模板要求，且疑似课后反馈内容（如短文本、无编号结构、缺少关键词）"],
+        ["评级-优秀", "同一老师所有学情总结均符合模板（结构和内容都匹配），且每个学生收到的内容均做到差异化（平均相似度<35%，至少2条）"],
+        ["评级-合格", "结构和内容与模板一致即为合格：包括「全部符合模板」(无论差异化高低) 和「部分符合模板」两种情况"],
+        ["评级-不合格", "所有学情总结的结构和内容都不符合模板（如短文本、无编号结构、缺少关键词、课后反馈备注等）"],
         ["同质化计算", "使用文本相似度算法(SequenceMatcher)计算同一老师多条学情总结两两之间的相似度，取平均值"],
     ]
 
