@@ -1,0 +1,20 @@
+{
+  "ok": true,
+  "identity": "user",
+  "data": {
+    "revision": 511,
+    "spreadsheetToken": "M4NHsX8DHhcbTptLdFmcim4HnJh",
+    "updatedCells": 84,
+    "updatedColumns": 84,
+    "updatedRange": "2SOCo8!A105:CF105",
+    "updatedRows": 1
+  },
+  "_notice": {
+    "update": {
+      "command": "lark-cli update",
+      "current": "1.0.34",
+      "latest": "1.0.42",
+      "message": "lark-cli 1.0.42 available, current 1.0.34, run: lark-cli update"
+    }
+  }
+}

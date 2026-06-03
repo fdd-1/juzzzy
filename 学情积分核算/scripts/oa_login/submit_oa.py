@@ -32,7 +32,7 @@ SCRIPT_DIR = Path(__file__).parent
 AUTH_PATH = SCRIPT_DIR / "auth_state.json"
 PORTAL_URL = "https://dingding.61info.cn/sys/portal/page.jsp"
 
-BASE_DIR = Path(__file__).resolve().parent.parent.parent
+BASE_DIR = Path(r"c:\Users\fengjianyi\Desktop\学情积分核算")
 OUTPUT_ROOT = BASE_DIR / "03_output"
 ENTRY_TEXT = "豌豆币添加申请"
 

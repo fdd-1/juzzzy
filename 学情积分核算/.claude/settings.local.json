@@ -1,0 +1,26 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(gh repo *)",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "WebSearch",
+      "Bash(python3 ~/.workbuddy/skills/bi_skill/bi_skill.py inspect \"思维停课学员执行明细\")",
+      "PowerShell(python --version)",
+      "PowerShell(py --version 2>&1)",
+      "PowerShell(python \"$HOME\\\\.workbuddy\\\\skills\\\\bi_skill\\\\bi_skill.py\" inspect \"思维停课学员执行明细\" 2>&1 | Select-Object -First 100)",
+      "PowerShell($env:PYTHONIOENCODING=\"utf-8\"; python \"$HOME\\\\.workbuddy\\\\skills\\\\bi_skill\\\\bi_skill.py\" inspect \"思维停课学员执行明细\" 2>&1 | Select-Object -First 100)",
+      "Bash(python3 -c ' *)",
+      "PowerShell($env:PYTHONIOENCODING=\"utf-8\"; python \"C:\\\\Users\\\\fengjianyi\\\\Desktop\\\\停课唤醒目标\\\\tingke_wakeup.py\" export --dry-run 2>&1)",
+      "PowerShell($env:PYTHONIOENCODING=\"utf-8\"; python \"C:\\\\Users\\\\fengjianyi\\\\Desktop\\\\停课唤醒目标\\\\tingke_wakeup.py\" export --dry-run 2>$null)",
+      "PowerShell($env:PYTHONIOENCODING=\"utf-8\"; python \"C:\\\\Users\\\\fengjianyi\\\\Desktop\\\\停课唤醒目标\\\\tingke_wakeup.py\" export --dry-run --month 2026-06 2>$null | python -c \"import sys,json; d=json.loads\\(sys.stdin.read\\(\\)\\)['data']; print\\(f\\\\\"6月: {d['signin_start']} ~ {d['signin_end']}\\\\\"\\)\")",
+      "PowerShell($env:PYTHONIOENCODING=\"utf-8\"; $out = python \"C:\\\\Users\\\\fengjianyi\\\\Desktop\\\\停课唤醒目标\\\\tingke_wakeup.py\" export --dry-run --month 2026-06 2>$null; $d = \\($out | ConvertFrom-Json\\).data; \"6月: $\\($d.signin_start\\) ~ $\\($d.signin_end\\)\")",
+      "PowerShell(python -c \"import playwright, pandas, openpyxl; print\\('deps_ok'\\)\")",
+      "PowerShell($env:PYTHONIOENCODING=\"utf-8\"; python \"C:\\\\Users\\\\fengjianyi\\\\Desktop\\\\停课唤醒目标\\\\tingke_wakeup.py\" export 2>&1 | Tee-Object -FilePath \"C:\\\\Users\\\\fengjianyi\\\\Desktop\\\\停课唤醒目标\\\\output\\\\export_run.log\")",
+      "PowerShell(Write-Host \"=== 停课唤醒目标/output/downloads ===\"; Get-ChildItem \"C:\\\\Users\\\\fengjianyi\\\\Desktop\\\\停课唤醒目标\\\\output\\\\downloads\\\\\" -ErrorAction SilentlyContinue | Sort-Object LastWriteTime -Descending | Select-Object -First 5 Name, Length, LastWriteTime | Format-Table -AutoSize; Write-Host \"=== ~/Downloads \\(近10分钟\\) ===\"; Get-ChildItem \"$HOME\\\\Downloads\\\\\" -ErrorAction SilentlyContinue | Where-Object { $_.LastWriteTime -gt \\(Get-Date\\).AddMinutes\\(-15\\) } | Sort-Object LastWriteTime -Descending | Select-Object -First 10 Name, Length, LastWriteTime | Format-Table -AutoSize)"
+    ],
+    "additionalDirectories": [
+      "C:\\Users\\fengjianyi\\Desktop\\停课唤醒目标"
+    ]
+  }
+}

@@ -52,12 +52,10 @@ def calc_date_range_auto():
 # ============ BI取数 ============
 
 def run_bi_skill(args):
-    """调用bi_skill下载报表（用户需自行配置 BI_SKILL_EXE 环境变量或修改路径）"""
-    import os
-    bi_skill_exe = Path(os.environ.get("BI_SKILL_EXE", r"C:\path\to\bi_skill.exe"))
+    """调用bi_skill下载报表"""
+    bi_skill_exe = Path(r"C:\Users\fengjianyi\.workbuddy\skills\bi_skill\bi_skill.exe")
     if not bi_skill_exe.exists():
         print(f"[ERROR] bi_skill.exe 不存在: {bi_skill_exe}")
-        print("       请设置环境变量 BI_SKILL_EXE 指向你本机的 bi_skill 可执行文件")
         return 1
     result = subprocess.run([str(bi_skill_exe)] + args, encoding="utf-8", errors="replace")
     return result.returncode

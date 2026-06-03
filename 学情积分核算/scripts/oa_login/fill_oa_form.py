@@ -18,11 +18,10 @@ SCRIPT_DIR = Path(__file__).parent
 AUTH_PATH  = SCRIPT_DIR / "auth_state.json"
 READY_FILE = SCRIPT_DIR / "form_ready.txt"  # 信号文件
 
-# 数据来源（相对路径，按需自行调整或改用 submit_oa.py）
-BASE_DIR = Path(__file__).resolve().parent.parent.parent
-WORK_DIR = BASE_DIR / "03_output"
+# 数据来源
+WORK_DIR = Path(r"c:\Users\fengjianyi\Desktop\学情积分核算\03_output\20260501-20260515学情积分发放明细_v2")
 ATTACHMENT = WORK_DIR / "发放豌豆币文档填写模板.xlsx"
-TOTAL_AMOUNT = 0  # 占位，建议改用 submit_oa.py 的自动求和
+TOTAL_AMOUNT = 1257000  # 从积分汇总计算得出
 
 if not AUTH_PATH.exists():
     print(f"[ERROR] 找不到 {AUTH_PATH}", flush=True)

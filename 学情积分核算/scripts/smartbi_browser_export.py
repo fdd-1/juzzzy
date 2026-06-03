@@ -56,11 +56,19 @@ async def export_simple_report(
     effective_filters = normalize_filters(filters)
 
     async with async_playwright() as pw:
-        launch_kwargs: dict[str, Any] = {"headless": headless}
+        launch_kwargs: dict[str, Any] = {
+            "headless": headless,
+            # 增大V8堆内存，避免大数据量（如上课明细9w+行）导出时OOM
+            "args": [
+                "--js-flags=--max-old-space-size=8192",
+                "--disable-dev-shm-usage",
+            ],
+        }
         if browser_channel:
             launch_kwargs["channel"] = browser_channel
         browser = await pw.chromium.launch(**launch_kwargs)
-        page = await browser.new_page()
+        context = await browser.new_context()
+        page = await context.new_page()
         try:
             result = await _do_export(
                 page, username, password, report_id,
@@ -117,7 +125,12 @@ async def _do_export(
 
     body_values = result.pop("bytes", None)
     if body_values is None:
-        return result
+        if result.get("exportSkipped"):
+            raise SmartbiBrowserExportError(
+                f"Export skipped: {result.get('skipReason', 'unknown')} "
+                f"(rowCount={result.get('rowCount')}, maxRows={result.get('maxRows')})"
+            )
+        raise SmartbiBrowserExportError(f"Export returned no bytes: {result}")
 
     body = bytes(body_values)
     content_type = result.get("contentType", "")
@@ -142,11 +155,15 @@ _EXPORT_JS = """async ({filters, maxRows, exportFile}) => {
       headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'},
       body
     });
-    const payload = await response.json();
-    if (payload.retCode !== 0 && payload.retCode !== '0') {
-      throw new Error(JSON.stringify(payload).slice(0, 500));
+    try {
+      const payload = await response.json();
+      if (payload.retCode !== 0 && payload.retCode !== '0') {
+        throw new Error(JSON.stringify(payload).slice(0, 500));
+      }
+      return payload.result;
+    } catch (e) {
+      throw new Error('RMI response parse failed: ' + e.message);
     }
-    return payload.result;
   }
   const adapter = window.getReportAdapter && window.getReportAdapter();
   const query =
@@ -159,10 +176,21 @@ _EXPORT_JS = """async ({filters, maxRows, exportFile}) => {
   const params = query.params.map((p) => ({
     id: p.id, alias: p.alias, name: p.name, value: p.value, displayValue: p.displayValue
   }));
+  console.log('Available params:', JSON.stringify(params));
   const paramIdByAlias = (alias) => {
-    const p = query.params.find((c) => c.alias === alias || c.name === alias);
-    if (!p) throw new Error('SmartBI parameter not found: ' + alias);
-    return p.id;
+    // 精确匹配
+    let p = query.params.find((c) => c.alias === alias || c.name === alias);
+    if (p) return p.id;
+
+    // 模糊匹配：包含关键词
+    const keywords = alias.split(/[_\\-\\s]+/).filter(k => k.length > 0);
+    p = query.params.find((c) => {
+      const fullText = (c.alias + ' ' + c.name).toLowerCase();
+      return keywords.every(k => fullText.includes(k.toLowerCase()));
+    });
+    if (p) return p.id;
+
+    throw new Error('SmartBI parameter not found: ' + alias);
   };
   const applied = [];
   for (const [alias, value, displayValue] of filters) {

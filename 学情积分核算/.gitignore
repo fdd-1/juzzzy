@@ -1,37 +1,78 @@
-# Python
+# 默认 .gitignore 模板 — 把常见敏感/无用文件挡在仓库外
+# 适用于：Python 自动化项目（Playwright + 数据处理）
+# 公开仓库尤其要用，私有仓库也建议用（防协作者误看）
+
+# ──────────────────────────────────────────────
+# 敏感数据 / 个人凭证（绝不能推）
+# ──────────────────────────────────────────────
+**/auth_state*.json
+**/code.txt
+**/credentials*.json
+**/*.pem
+**/*.key
+**/.env
+**/.env.*
+**/*_secret*
+**/*_token*
+**/login_error.*
+**/login_timeout.*
+
+# 抓包文件（含 Authorization Bearer + 真实用户列表）
+**/*.har
+
+# 录屏（可能录到二维码/UI/真实姓名）
+**/*.webm
+**/*.mp4
+**/*.mov
+**/videos/
+
+# 截图 + 页面 dump（多数含真实业务数据）
+**/*.png
+**/*.jpg
+**/*.jpeg
+**/*.html
+**/*.htm
+
+# ──────────────────────────────────────────────
+# 业务产物 / PII
+# ──────────────────────────────────────────────
+output/
+exports/
+downloads/
+**/upload_*.xlsx
+**/user_ids_*.xlsx
+**/dadou_ids_*.xlsx
+**/raw_*.xlsx
+**/raw_*.csv
+**/filtered_*.xlsx
+**/filtered_*.csv
+**/dadou_mapping_*.xlsx
+**/导入用户id*.xlsx
+**/latest_inputs.json
+**/modal_dump.html
+
+# 中间产物
+**/*_run.log
+**/*_run*.log
+**/*_dry.log
+**/*_dry*.log
+**/run_log_*.json
+**/done.txt
+**/add_full.txt
+
+# ──────────────────────────────────────────────
+# Python / 工具产物
+# ──────────────────────────────────────────────
 __pycache__/
-*.py[cod]
-*$py.class
-*.so
-.Python
-*.egg-info/
-
-# 敏感：登录态（含会话 Cookie）
-scripts/oa_login/auth_state.json
-
-# 敏感：真实学员 / BI 数据
-01_bi_exports/
-02_processed/
-03_output/*
-!03_output/发放豌豆币文档填写模板.xlsx
-
-# OA 调试产物
-scripts/oa_login/*.png
-scripts/oa_login/*.html
-scripts/oa_login/*.log
-scripts/oa_login/record_events*.json
-scripts/oa_login/record_events*.ndjson
-scripts/oa_login/record_events.STOP
-scripts/oa_login/videos/
-
-# IDE / 系统
-.vscode/
-.idea/
-.claude/
+*.pyc
+*.pyo
+.venv/
+venv/
 .DS_Store
 Thumbs.db
 
-# 临时
-*.tmp
-*.bak
-_release/
+# ──────────────────────────────────────────────
+# IDE
+# ──────────────────────────────────────────────
+.vscode/
+.idea/

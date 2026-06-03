@@ -14,21 +14,17 @@
       "filters": {
         "date_fields": [
           "当前课包签单年月开始",
-          "当前课包签单年月结束",
-          "当前课包签单时间开始",
-          "当前课包签单时间结束"
+          "当前课包签单年月结束"
         ],
         "date_mapping": {
           "当前课包签单年月开始": "start_date",
-          "当前课包签单年月结束": "end_date",
-          "当前课包签单时间开始": "start_date",
-          "当前课包签单时间结束": "end_date"
+          "当前课包签单年月结束": "end_date"
         }
       },
       "output": {
         "filename": "海外思维续费规划表_新版_26年启用.xlsx"
       },
-      "max_rows": 50000
+      "max_rows": 200000
     },
     "shangke_mingxi": {
       "enabled": true,
@@ -48,7 +44,8 @@
       "output": {
         "filename": "海外思维学员上课明细.xlsx"
       },
-      "max_rows": 50000
+      "max_rows": 200000,
+      "split_days": 4
     }
   }
 }

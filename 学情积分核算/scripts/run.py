@@ -21,7 +21,7 @@ import calendar
 from pathlib import Path
 from datetime import datetime, date, timedelta
 
-BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = Path(r"C:\Users\fengjianyi\Desktop\学情积分核算")
 SCRIPTS_DIR = BASE_DIR / "scripts"
 EXPORTS_DIR = BASE_DIR / "01_bi_exports"
 OUTPUT_DIR = BASE_DIR / "03_output"
@@ -42,11 +42,17 @@ def calc_date_range_auto() -> tuple[str, str]:
     return start.strftime("%Y-%m-%d"), end.strftime("%Y-%m-%d")
 
 
-def find_latest_xlsx(directory: Path, keyword: str) -> Path | None:
-    """在目录中找到包含关键字的最新xlsx文件"""
+def find_latest_xlsx(directory: Path, keyword: str, suffix: str = "") -> Path | None:
+    """在目录中找到包含关键字（且包含可选后缀）的最新xlsx文件。
+
+    suffix 用于按时间段后缀（如 '20260516-20260531'）精确匹配，
+    避免误用其它时间段的文件。
+    """
     matches = []
     for f in directory.glob("*.xlsx"):
-        if keyword in f.name:
+        if f.name.startswith("~$"):  # 跳过Excel临时锁文件
+            continue
+        if keyword in f.name and (not suffix or suffix in f.name):
             matches.append(f)
     if not matches:
         return None
@@ -95,18 +101,19 @@ def main():
     else:
         print("\n>>> 步骤1: 跳过BI取数 (--skip-fetch)")
 
-    # Step 2: 定位下载的文件
+    # Step 2: 定位下载的文件（按时间段后缀精确匹配）
     print("\n>>> 步骤2: 定位下载文件...")
-    report1_file = find_latest_xlsx(EXPORTS_DIR, "续费规划")
-    report2_file = find_latest_xlsx(EXPORTS_DIR, "上课明细")
+    period_suffix = f"{start_short}-{end_short}"
+    report1_file = find_latest_xlsx(EXPORTS_DIR, "续费规划", suffix=period_suffix)
+    report2_file = find_latest_xlsx(EXPORTS_DIR, "上课明细", suffix=period_suffix)
 
     if not report1_file:
-        report1_file = find_latest_xlsx(EXPORTS_DIR, "续费")
+        report1_file = find_latest_xlsx(EXPORTS_DIR, "续费", suffix=period_suffix)
     if not report2_file:
-        report2_file = find_latest_xlsx(EXPORTS_DIR, "学员")
+        report2_file = find_latest_xlsx(EXPORTS_DIR, "学员", suffix=period_suffix)
 
     if not report1_file or not report2_file:
-        print(f"[ERROR] 在 {EXPORTS_DIR} 中未找到报表文件")
+        print(f"[ERROR] 在 {EXPORTS_DIR} 中未找到本期 ({period_suffix}) 报表文件")
         print(f"  报表1(续费规划表): {report1_file}")
         print(f"  报表2(上课明细): {report2_file}")
         print("\n请确认文件已下载，或手动指定路径后用 process_xueqing.py 处理")

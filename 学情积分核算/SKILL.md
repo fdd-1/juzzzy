@@ -14,6 +14,33 @@
 - ✅ OA 豌豆币添加申请自动提交（Playwright，复用扫码登录态，含 K2 inputselect 控件处理）
 - ✅ 一条龙：取数 → 核算 → 填模板 → 提交 OA
 
+## 重要规则
+
+### 报表下载规则（必读）
+
+⚠️ **每次核算不同时间段的积分时，必须重新下载报表**
+
+- ✅ **默认行为**：每次运行 `run` 命令都会从BI重新下载报表
+- ❌ **禁止**：不同时间段的核算使用同一份报表文件
+- ✅ **唯一例外**：同一天内，对同一时间段重复核算时，可使用 `--skip-fetch` 跳过下载
+
+**示例**：
+```bash
+# 第一次核算 5月16-31日 → 自动下载报表 ✅
+python xueqing_credit_skill.py run --start 2026-05-16 --end 2026-05-31
+
+# 同一天内，发现数据有问题，重新核算同一时间段 → 可跳过下载 ✅
+python xueqing_credit_skill.py run --start 2026-05-16 --end 2026-05-31 --skip-fetch
+
+# 第二天核算 6月1-15日 → 必须重新下载报表 ✅
+python xueqing_credit_skill.py run --start 2026-06-01 --end 2026-06-15
+
+# ❌ 错误：用昨天的报表算今天的数据
+python xueqing_credit_skill.py run --start 2026-06-01 --end 2026-06-15 --skip-fetch
+```
+
+**原因**：BI报表数据会实时更新，使用旧报表会导致积分核算结果不准确。
+
 ## 快速开始
 
 ### 一条龙（推荐）
@@ -202,7 +229,40 @@ A:
 2. 任务计划程序 → 查看任务历史
 3. 手动触发：`schtasks /Run /TN "学情积分核算_月初"`
 
+### Q: BI 报表下载提示 `extendsion_loginlock_forbid` / "账号在其他地方登录"？
+A: SmartBI 限制同账号同时登录。两次连续运行（或 headful 调试 + 正式运行）会冲突。**等 5-10 秒**让会话释放后重试即可。
+
+### Q: 报表显示「下载完成 0 bytes」，但程序没报错？
+A: 历史 bug，已修复（v3.1）。原因是当 `rowCount > max_rows` 时浏览器跳过导出但程序不报错。现在会明确 raise `SmartbiBrowserExportError: Export skipped`。如果再遇到，先调大 `max_rows`，或对该报表配置 `split_days` 分段下载。
+
+### Q: 上课明细下载报 `JavaScript heap out of memory`？
+A: 浏览器 V8 堆 ~2GB 上限不足以装 9w+ 行数据。**Playwright `args: ["--js-flags=--max-old-space-size=8192"]` 不生效**（实测）。解决方案：在 `configs/smartbi_simple_report_tasks.json` 给报表配 `"split_days": 4`，按 4 天分段下载然后合并。已为「上课明细」默认开启。
+
+### Q: 合并后的 xlsx 只有几 KB，数据全没了？
+A: openpyxl `read_only=True` 模式读 SmartBI 导出的 xlsx 时 `iter_rows()` 会返回空。`merge_xlsx_files` 已改为非 read_only 模式（v3.1）。同时增加合并后大小校验：合并文件 < 段文件总和 30% 会 raise 并保留段文件，方便人工排查/重合并。
+
+### Q: 处理时报 `PermissionError: ...上课明细_带标注.xlsx`？
+A: 输出文件被 Excel 占用。看 `01_bi_exports/` 或 `03_output/<期次>/` 是否有 `~$xxx.xlsx` 临时锁文件 —— 关闭对应 Excel 窗口再跑。`run.py` 的 `find_latest_xlsx` 已自动跳过 `~$` 文件。
+
+### Q: 数据处理结果是 0 行 / 0 积分，但 BI 报表是有数据的？
+A: 大概率是 `01_bi_exports/` 里有同名旧文件被错用。**v3.1 起 BI 文件名带时间段后缀**（如 `海外思维学员上课明细_20260516-20260531.xlsx`），`run.py` 也按后缀精确匹配。如果文件名没后缀，删了重跑。
+
+### Q: 提交 OA 时点完提交按钮，脚本报 `TargetClosedError: Target page, context or browser has been closed`？
+A: OA 系统在提交成功后会跳转/关闭弹窗，脚本最后等待 5s 验证时浏览器已关闭。**通常意味着提交已成功**，但脚本无法自动确认。处理：
+1. 登录 OA → 「我的申请」查看是否有刚提交的豌豆币添加申请
+2. 没看到再 `python xueqing_credit_skill.py submit-oa --yes` 重提
+
 ## 更新日志
+
+### v3.1 (2026-06-03)
+- 🐛 修复 `smartbi_browser_export.py` 在 `rowCount > max_rows` 时静默失败：现在会 raise `Export skipped` 错误
+- ✨ BI 导出文件名加时间段后缀（如 `海外思维学员上课明细_20260516-20260531.xlsx`），不同期次互不覆盖
+- ✨ `run.py` 的 `find_latest_xlsx` 按时间段后缀精确匹配，并自动跳过 `~$` Excel 锁文件
+- ✨ 默认 `max_rows` 从 50000 提到 200000
+- ✨ **大报表分段下载并合并**：在 task config 加 `"split_days": N` 即可按 N 天分段下载，合并到单一 xlsx。「上课明细」默认 `split_days: 4`，解决 9w+ 行浏览器 OOM 问题
+- ✨ 段文件复用：再跑时已下载且非空的段会跳过下载，只补未完成的段
+- ✨ 合并失败保护：合并后大小 < 段文件总和 30% 时 raise 并保留段文件
+- 🐛 `merge_xlsx_files` 改为非 read_only 模式打开 SmartBI 导出的 xlsx（read_only 下 iter_rows 返回空）
 
 ### v3.0 (2026-05-28)
 - ✨ 一条龙：`run --auto --submit-oa` 串起取数 → 核算 → 填模板 → 提交 OA
