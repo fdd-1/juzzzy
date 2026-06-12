@@ -1,0 +1,23 @@
+# 私有数据 / 中间产物 — 不参与 Skill 交接
+data/
+output/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+
+# Excel 临时锁文件
+~$*.xlsx
+
+# 编辑器
+.vscode/
+.idea/
+*.swp
+
+# 操作系统
+.DS_Store
+Thumbs.db
+desktop.ini
