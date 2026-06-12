@@ -1,0 +1,10 @@
+.env
+auth_state.json
+dingtalk_auth.json
+browser_profile/
+exports/
+downloads/
+__pycache__/
+*.pyc
+.venv/
+venv/

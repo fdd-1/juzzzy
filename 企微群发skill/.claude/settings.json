@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python parse_docx.py:*)",
+      "Bash(python create_template.py:*)",
+      "Bash(python create_task.py:*)",
+      "PowerShell(python parse_docx.py*)",
+      "PowerShell(python create_template.py*)",
+      "PowerShell(python create_task.py*)",
+      "Bash(python -m playwright install chromium)",
+      "Bash(pip install:*)"
+    ]
+  }
+}

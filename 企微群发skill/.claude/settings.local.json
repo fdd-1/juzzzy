@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(Get-ChildItem -Path \"$env:USERPROFILE\\\\.claude\\\\skills\" -Directory | Select-Object Name)",
+      "Read(//c/c/Users/fengjianyi/Desktop/企微群发skill/_tmp_skill_inserts/**)",
+      "Bash(xxd)",
+      "PowerShell(lark-cli docs +update --api-version v2 --doc $doc --command block_insert_after --block-id \"Z0TOdUDIToLySLxvTvUcL03NnHv\" --content $simple 2>&1)",
+      "PowerShell($doc = \"VOendMNwrofsCfxPjJDcOYYan8g\")",
+      "PowerShell($simple = \"<p>���Զ���</p>\")"
+    ]
+  }
+}
