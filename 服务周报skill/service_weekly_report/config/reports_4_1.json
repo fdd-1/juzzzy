@@ -1,0 +1,66 @@
+{
+  "section": "4.1",
+  "section_title": "服务指标跟进 & 语义分析",
+  "reports": [
+    {
+      "id": "1_首通监控",
+      "name": "益智海外新生首通监控",
+      "filters_template": {
+        "extra_dates": [
+          {"field": "首次分配开始时间", "value": "{last_monday}"},
+          {"field": "首次分配结束时间", "value": "{last_sunday}"}
+        ]
+      },
+      "post_process": "仅保留月度数据,改名为首通"
+    },
+    {
+      "id": "2_服务指标_首课",
+      "name": "海外思维学管服务指标统计表",
+      "filters_template": {
+        "extra_dates": [
+          {"field": "开始日期", "value": "{last_monday}"},
+          {"field": "结束时间", "value": "{last_friday}"},
+          {"field": "LP做工开始时间", "value": "{last_monday}"},
+          {"field": "LP做工结束时间", "value": "{last_sunday}"}
+        ]
+      },
+      "post_process": "仅保留首课数据"
+    },
+    {
+      "id": "3_服务指标_首专",
+      "name": "海外思维学管服务指标统计表",
+      "filters_template": {
+        "extra_dates": [
+          {"field": "开始日期", "value": "{last_monday}"},
+          {"field": "结束时间", "value": "{last_thursday}"},
+          {"field": "LP做工开始时间", "value": "{last_monday}"},
+          {"field": "LP做工结束时间", "value": "{last_sunday}"}
+        ]
+      },
+      "post_process": "仅保留首专数据"
+    },
+    {
+      "id": "4_SOP执行",
+      "name": "海外思维服务SOP执行情况",
+      "filters_template": {
+        "extra_dates": [
+          {"field": "日期", "value": "{last_sunday}"},
+          {"field": "做工开始时间", "value": "{last_monday}"},
+          {"field": "做工结束时间", "value": "{last_sunday}"}
+        ],
+        "filters": [{"field": "海外思维团队", "value": "全部"}]
+      },
+      "post_process": "仅保留首通和首课数据,首通改名为首通语义点执行,首课改名为首课语义点执行"
+    },
+    {
+      "id": "5_LP架构",
+      "name": "海外思维LP架构表",
+      "filters_template": {
+        "extra_dates": [
+          {"field": "日期", "value": "{last_sunday}"}
+        ]
+      },
+      "post_process": "保留入职时间、离职时间、入职时间分组"
+    }
+  ]
+}

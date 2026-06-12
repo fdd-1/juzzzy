@@ -1,0 +1,215 @@
+{
+  "version": 1,
+  "base_url": "https://bi.61info.cn/smartbi/vision",
+  "tasks": {
+    "service_weekly_4_1_shoutong": {
+      "enabled": true,
+      "description": "4.1 益智海外新生首通监控",
+      "report": {
+        "id": "I2c928087018722bf22bf7d4d0187ff868fab30da",
+        "path": "分析报表/海外直播业务线/海外后端/思维-后端/服务/首通/益智海外新生首通监控",
+        "type": "SPREADSHEET_REPORT"
+      },
+      "filters": {
+        "date_window": "previous_week",
+        "overrides": []
+      },
+      "output": {
+        "type": "file",
+        "dir": "outputs/bi_exports/service_weekly/{run_date}/4_1_shoutong"
+      }
+    },
+    "service_weekly_4_1_shouke": {
+      "enabled": true,
+      "description": "4.1 海外思维学管服务指标统计表（首课）",
+      "report": {
+        "id": "I2c9280870189f6f1f6f10d05018a64543b1960d0",
+        "path": "分析报表/海外直播业务线/海外后端/思维-后端/服务/首课/海外思维学管服务指标统计表",
+        "type": "SPREADSHEET_REPORT"
+      },
+      "filters": {
+        "date_window": "previous_week",
+        "overrides": []
+      },
+      "output": {
+        "type": "file",
+        "dir": "outputs/bi_exports/service_weekly/{run_date}/4_1_shouke"
+      }
+    },
+    "service_weekly_4_1_shouzhuan": {
+      "enabled": true,
+      "description": "4.1 海外思维学管服务指标统计表（首专）",
+      "report": {
+        "id": "I2c9280870189f6f1f6f10d05018a64543b1960d0",
+        "path": "分析报表/海外直播业务线/海外后端/思维-后端/服务/首课/海外思维学管服务指标统计表",
+        "type": "SPREADSHEET_REPORT"
+      },
+      "filters": {
+        "date_window": "previous_week",
+        "overrides": []
+      },
+      "output": {
+        "type": "file",
+        "dir": "outputs/bi_exports/service_weekly/{run_date}/4_1_shouzhuan"
+      }
+    },
+    "service_weekly_4_1_sop": {
+      "enabled": true,
+      "description": "4.1 海外思维服务SOP执行情况",
+      "report": {
+        "id": "I2c928087019364b764b704c8019375e98bea20d9",
+        "path": "分析报表/海外直播业务线/海外后端/思维-后端/服务/语义分析_服务/海外思维服务SOP执行情况",
+        "type": "SPREADSHEET_REPORT"
+      },
+      "filters": {
+        "date_window": "previous_week",
+        "overrides": [
+          {
+            "key": "海外思维团队",
+            "value": "全选",
+            "displayValue": "全选"
+          }
+        ]
+      },
+      "output": {
+        "type": "file",
+        "dir": "outputs/bi_exports/service_weekly/{run_date}/4_1_sop"
+      }
+    },
+    "service_weekly_4_1_lp_arch": {
+      "enabled": false,
+      "description": "4.1 海外思维LP架构表（⚠️ SIMPLE_REPORT类型，暂不支持）",
+      "report": {
+        "id": "I2c92808701896211621123220189780e7c854fc7",
+        "path": "分析报表/海外直播业务线/海外后端/思维-后端/其他/海外思维LP架构表",
+        "type": "SIMPLE_REPORT"
+      },
+      "filters": {
+        "date_window": "current_week_snapshot"
+      },
+      "output": {
+        "type": "file",
+        "dir": "outputs/bi_exports/service_weekly/{run_date}/4_1_lp_arch"
+      }
+    },
+    "service_weekly_4_2": {
+      "enabled": true,
+      "description": "4.2 思维LP组班意向提交播报",
+      "report": {
+        "id": "I2c9280870199baeabaea35bb0199d14379526743",
+        "path": "分析报表/海外直播业务线/海外后端/思维-后端/其他/思维LP组班意向提交播报",
+        "type": "SPREADSHEET_REPORT"
+      },
+      "filters": {
+        "date_window": "month_to_last_sunday"
+      },
+      "output": {
+        "type": "file",
+        "dir": "outputs/bi_exports/service_weekly/{run_date}/4_2"
+      }
+    },
+    "service_weekly_4_3": {
+      "enabled": true,
+      "description": "4.3 思维海外群发消息汇总数据播报",
+      "report": {
+        "id": "I2c92808701989a869a8616730198bc740f510455",
+        "path": "分析报表/海外直播业务线/海外后端/思维-后端/服务/群发/思维海外群发消息汇总数据播报",
+        "type": "SPREADSHEET_REPORT"
+      },
+      "filters": {
+        "date_window": "month_to_last_sunday"
+      },
+      "output": {
+        "type": "file",
+        "dir": "outputs/bi_exports/service_weekly/{run_date}/4_3"
+      }
+    },
+    "service_weekly_4_4": {
+      "enabled": true,
+      "description": "4.4 思维停课学员执行监控",
+      "report": {
+        "id": "I2c928087018b5acd5acd0fdc018c24e77b3c3525",
+        "path": "分析报表/海外直播业务线/海外后端/思维-后端/服务/停课唤醒/思维停课学员执行监控",
+        "type": "SPREADSHEET_REPORT"
+      },
+      "filters": {
+        "date_window": "month_to_last_sunday"
+      },
+      "output": {
+        "type": "file",
+        "dir": "outputs/bi_exports/service_weekly/{run_date}/4_4"
+      }
+    },
+    "service_weekly_4_5_fuwuyue": {
+      "enabled": true,
+      "description": "4.5 思维转介绍过程跟进报表_末次渠道（服务月）",
+      "report": {
+        "id": "I2c9280870191447f447f3a940191b1cf2a202710",
+        "path": "分析报表/海外直播业务线/海外后端/思维-后端/转介绍/转介绍监控/思维转介绍过程跟进报表_末次渠道",
+        "type": "SPREADSHEET_REPORT"
+      },
+      "filters": {
+        "date_window": "month_to_last_sunday"
+      },
+      "output": {
+        "type": "file",
+        "dir": "outputs/bi_exports/service_weekly/{run_date}/4_5_fuwuyue"
+      }
+    },
+    "service_weekly_4_5_sop": {
+      "enabled": true,
+      "description": "4.5 海外思维服务SOP执行情况（服务池语义）",
+      "report": {
+        "id": "I2c928087019364b764b704c8019375e98bea20d9",
+        "path": "分析报表/海外直播业务线/海外后端/思维-后端/服务/语义分析_服务/海外思维服务SOP执行情况",
+        "type": "SPREADSHEET_REPORT"
+      },
+      "filters": {
+        "date_window": "previous_week",
+        "overrides": [
+          {
+            "key": "海外思维团队",
+            "value": "全选",
+            "displayValue": "全选"
+          }
+        ]
+      },
+      "output": {
+        "type": "file",
+        "dir": "outputs/bi_exports/service_weekly/{run_date}/4_5_sop"
+      }
+    },
+    "service_weekly_4_6_waihu": {
+      "enabled": true,
+      "description": "4.6 LP系统外呼监控-分池子",
+      "report": {
+        "id": "I2c928087019c8be48be48889019c97e154655e1e",
+        "path": "分析报表/海外直播业务线/海外后端/思维-后端/服务/学情&服务质量/LP系统外呼监控-分池子",
+        "type": "SPREADSHEET_REPORT"
+      },
+      "filters": {
+        "date_window": "month_to_last_sunday"
+      },
+      "output": {
+        "type": "file",
+        "dir": "outputs/bi_exports/service_weekly/{run_date}/4_6_waihu"
+      }
+    },
+    "service_weekly_4_6_qiwei": {
+      "enabled": true,
+      "description": "4.6 LP企微回复比监控-分池子",
+      "report": {
+        "id": "I2c928087019c8be48be48889019c994d3f4a3e2c",
+        "path": "分析报表/海外直播业务线/海外后端/思维-后端/服务/学情&服务质量/LP企微回复比监控-分池子",
+        "type": "SPREADSHEET_REPORT"
+      },
+      "filters": {
+        "date_window": "month_to_last_sunday"
+      },
+      "output": {
+        "type": "file",
+        "dir": "outputs/bi_exports/service_weekly/{run_date}/4_6_qiwei"
+      }
+    }
+  }
+}

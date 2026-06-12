@@ -1,0 +1,38 @@
+{
+  "version": 1,
+  "base_url": "https://bi.61info.cn/smartbi/vision",
+  "tasks": {
+    "service_weekly_4_1_sop": {
+      "enabled": true,
+      "description": "4.1 海外思维服务SOP执行情况",
+      "report": {
+        "id": "I2c928087019364b764b704c8019375e98bea20d9",
+        "path": "分析报表/海外直播业务线/海外后端/思维-后端/服务/语义分析_服务/海外思维服务SOP执行情况",
+        "type": "SPREADSHEET_REPORT"
+      },
+      "filters": {
+        "overrides": [
+          {
+            "key": "海外思维团队",
+            "value": "全选",
+            "displayValue": "全选"
+          }
+        ],
+        "extra_params": [
+          {
+            "key": "开始时间",
+            "value": "2026-06-01"
+          },
+          {
+            "key": "结束时间",
+            "value": "2026-06-07"
+          }
+        ]
+      },
+      "output": {
+        "type": "file",
+        "dir": "outputs/bi_exports/service_weekly/{run_date}/4_1_sop"
+      }
+    }
+  }
+}

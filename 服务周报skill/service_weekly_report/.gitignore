@@ -1,0 +1,31 @@
+# Runtime / 缓存目录（跨机器拷贝 skill 时这些目录可整体丢弃，下次跑会自动重建）
+
+# 报表下载缓存（每次跑都会按当前机器路径重新生成 run.json + xlsx）
+downloads/
+
+# 数据处理 / 文档生成的中间产物
+exports/
+
+# download_smartbi_reports.py 每次跑都重写的动态配置
+configs/_dynamic/
+
+# download_sop_fixed.py / download_4_5_fuwuyue.py 每次跑都重写的临时配置
+scripts/sop_config.json
+scripts/fuwuyue_4_5_config.json
+
+# 历次手工 SOP 验证产物
+test_download/sop_default/
+test_download/sop_empty/
+test_download/sop_array/
+test_download/sop_quanxuan/
+
+# Python 字节码
+__pycache__/
+*.pyc
+*.pyo
+
+# 编辑器 / 系统垃圾
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
