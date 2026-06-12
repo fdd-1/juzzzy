@@ -1,0 +1,19 @@
+{
+  "_comment": "复制此文件为 config.local.json。密码不再写入配置文件，改为通过环境变量或交互式输入提供。config.local.json 已 gitignore。",
+  "crm": {
+    "home_url": "https://crm.vipthink.cn",
+    "login_url": "https://passport.vipthink.cn/#/account/login",
+    "class_package_url": "https://crm.vipthink.cn/#/finance/goodsMge/ClassPackageManage",
+    "package_manage_url": "https://crm.vipthink.cn/#/finance/goodsMge/packageMge"
+  },
+  "auth": {
+    "_comment": "username 可填默认账号；password 不在此处配置。",
+    "_credential_sources": "优先级：环境变量 CRM_USERNAME / CRM_PASSWORD > config 的 auth.username > 交互式输入（getpass）",
+    "username": "<可选：默认账号，如不填则交互式询问>"
+  },
+  "timeouts": {
+    "default": 10000,
+    "navigation": 30000,
+    "download": 180000
+  }
+}

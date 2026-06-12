@@ -1,0 +1,11 @@
+# 登录态和日志（含截图，可能含 PII）
+auth_state.json
+config.local.json
+logs/
+
+# Python 缓存
+__pycache__/
+*.pyc
+
+# 调试脚本（实际开发临时用）
+debug_*.py
