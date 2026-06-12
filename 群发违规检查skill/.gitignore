@@ -1,0 +1,83 @@
+# 默认 .gitignore 模板 — 把常见敏感/无用文件挡在仓库外
+# 适用于：Python 自动化项目（Playwright + 数据处理）
+# 公开仓库尤其要用，私有仓库也建议用（防协作者误看）
+
+# ──────────────────────────────────────────────
+# 敏感数据 / 个人凭证（绝不能推）
+# ──────────────────────────────────────────────
+**/auth_state*.json
+**/code.txt
+**/credentials*.json
+**/*.pem
+**/*.key
+**/.env
+**/.env.*
+**/*_secret*
+**/*_token*
+**/login_error.*
+**/login_timeout.*
+
+# 抓包文件（含 Authorization Bearer + 真实用户列表）
+**/*.har
+
+# Playwright/浏览器登录态目录
+**/browser_profile/
+**/user_data_dir/
+**/playwright_profile/
+
+# 录屏（可能录到二维码/UI/真实姓名）
+**/*.webm
+**/*.mp4
+**/*.mov
+**/videos/
+
+# 截图 + 页面 dump（多数含真实业务数据）
+**/*.png
+**/*.jpg
+**/*.jpeg
+**/*.html
+**/*.htm
+
+# ──────────────────────────────────────────────
+# 业务产物 / PII
+# ──────────────────────────────────────────────
+output/
+exports/
+downloads/
+**/upload_*.xlsx
+**/user_ids_*.xlsx
+**/dadou_ids_*.xlsx
+**/raw_*.xlsx
+**/raw_*.csv
+**/filtered_*.xlsx
+**/filtered_*.csv
+**/dadou_mapping_*.xlsx
+**/导入用户id*.xlsx
+**/latest_inputs.json
+**/modal_dump.html
+
+# 中间产物
+**/*_run.log
+**/*_run*.log
+**/*_dry.log
+**/*_dry*.log
+**/run_log_*.json
+**/done.txt
+**/add_full.txt
+
+# ──────────────────────────────────────────────
+# Python / 工具产物
+# ──────────────────────────────────────────────
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+.DS_Store
+Thumbs.db
+
+# ──────────────────────────────────────────────
+# IDE
+# ──────────────────────────────────────────────
+.vscode/
+.idea/
