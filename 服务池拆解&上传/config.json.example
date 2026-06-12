@@ -1,0 +1,35 @@
+{
+  "year": "26年",
+  "current_month": "2026-06",
+
+  "_path_vars_help": "支持 ${SKILL_DIR} / ${DESKTOP} / ${POOL_DIR} / ${LIUYI_DIR} / ${BI_TOOL_DIR}。也可写绝对路径。",
+
+  "liuzhuang_file": "${POOL_DIR}/6月/学员流转定稿-终版v1.xlsx",
+  "liuyi_create_path": "${LIUYI_DIR}/create.py",
+  "liuyi_sync_path": "${SKILL_DIR}/sync_tag_data.py",
+  "work_dir_base": "${SKILL_DIR}",
+  "smartbi_browser_export_path": "${BI_TOOL_DIR}/smartbi_browser_export.py",
+
+  "bi_report": {
+    "profile_name": "海外思维续费规划表_新版_26年启用",
+    "report_id": "I2c928087019b236723675f9c019b353f6027505b",
+    "filters": {
+      "池子节点3": "服务月"
+    },
+    "date_fields": {
+      "开课M计算时间": "current_month_first_day",
+      "退费结束时间": "prev_month_last_day"
+    }
+  },
+
+  "filter_conditions": {
+    "是否可续学员": 1,
+    "月初是否续费": "blank"
+  },
+
+  "tag_config": {
+    "prefix": "【海外益智】",
+    "suffix": "服务池学员名单",
+    "with_wechat": false
+  }
+}

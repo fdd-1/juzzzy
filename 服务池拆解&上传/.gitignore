@@ -1,0 +1,46 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+*.egg-info/
+
+# 敏感文件
+*.json
+!config.json.example
+
+# 数据文件
+data/downloads/*
+data/processed/*
+!data/downloads/.gitkeep
+!data/processed/.gitkeep
+
+# 日志和临时文件
+logs/*
+!logs/.gitkeep
+*.log
+*.tmp
+*.bak
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# 六一工作台登录态
+auth_state.json
+
+# BI 导出临时文件
+upload_*.xlsx
+result_*.json
+before_login.png
+after_login.png
+*.png
