@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "base_url": "https://bi.61info.cn/smartbi/vision",
+  "tasks": {
+    "xuewei_warning_renewal_plan": {
+      "enabled": true,
+      "description": "海外思维续费规划表_新版_26年启用 - 学位预警P0任务",
+      "report": {
+        "id": "I2c928087019b236723675f9c019b353f6027505b",
+        "path": "分析报表/海外直播业务线/海外后端/思维-后端/续费/续费明细/海外思维续费规划表_新版_26年启用",
+        "type": "SIMPLE_REPORT"
+      },
+      "filters": {
+        "mode": "override",
+        "overrides": [
+          {
+            "key": "开课M计算时间",
+            "value": "2026-06-01",
+            "displayValue": "2026-06-01"
+          },
+          {
+            "key": "退费结束时间",
+            "value": "2026-05-31 23:59:59",
+            "displayValue": "2026-05-31 23:59:59"
+          },
+          {
+            "key": "学管大区",
+            "value": "海外教学服务部",
+            "displayValue": "海外教学服务部"
+          }
+        ]
+      },
+      "output": {
+        "type": "file",
+        "dir": "exports/学位预警_{run_date}"
+      }
+    }
+  }
+}
