@@ -1,0 +1,26 @@
+# 排除运行时产物 / 中间文件
+__pycache__/
+*.pyc
+*.pyo
+
+# 日志 / 截图 / 录屏 / 抓包（也由全局模板兜底，这里再加一层）
+*.log
+*.png
+*.jpg
+*.html
+*.har
+*.webm
+*.mp4
+*.ndjson
+
+# 登录态
+auth_state*.json
+code.txt
+.env
+.env.*
+
+# 业务数据 / 中间产物（绝不入库）
+01_bi_exports/
+02_processed/
+03_output/
+videos/

@@ -1,0 +1,22 @@
+{
+  "version": 1,
+  "base_url": "https://bi.61info.cn/smartbi/vision",
+  "tasks": {
+    "xueqing_xufei": {
+      "enabled": true,
+      "description": "学情积分核算-续费规划表",
+      "report": {
+        "id": "I2c928087019b236723675f9c019b353f6027505b",
+        "path": "分析报表/海外直播业务线/海外后端/思维-后端/续费/续费明细/海外思维续费规划表_新版_26年启用",
+        "type": "SIMPLE_REPORT"
+      },
+      "filters": {
+        "mode": "default"
+      },
+      "output": {
+        "type": "file",
+        "dir": "C:\\Users\\fengjianyi\\Desktop\\学情积分核算\\01_bi_exports"
+      }
+    }
+  }
+}
