@@ -1,0 +1,86 @@
+{
+  "version": 1,
+  "base_url": "https://bi.61info.cn/smartbi/vision",
+  "tasks": {
+    "service_metrics": {
+      "enabled": true,
+      "description": "海外思维学管服务指标统计表",
+      "report": {
+        "id": "I2c9280870189f6f1f6f10d05018a64543b1960d0",
+        "path": "分析报表/海外直播业务线/海外后端/思维-后端/服务/首课/海外思维学管服务指标统计表",
+        "type": "SPREADSHEET_REPORT"
+      },
+      "filters": {
+        "overrides": [
+          {"key": "开始日期", "value": "2026-06-01", "displayValue": "2026-06-01"},
+          {"key": "结束时间", "value": "2026-06-05", "displayValue": "2026-06-05"},
+          {"key": "LP做工开始时间", "value": "2026-06-01", "displayValue": "2026-06-01"},
+          {"key": "LP做工结束时间", "value": "2026-06-05", "displayValue": "2026-06-05"},
+          {"key": "结束时间", "value": "2026-06-05 23:59:00", "displayValue": "2026-06-05 23:59:00"}
+        ]
+      },
+      "output": {
+        "type": "file",
+        "dir": "data/6月"
+      }
+    },
+    "service_sop": {
+      "enabled": true,
+      "description": "海外思维服务SOP执行情况",
+      "report": {
+        "id": "I2c928087019364b764b704c8019375e98bea20d9",
+        "path": "分析报表/海外直播业务线/海外后端/思维-后端/服务/语义分析_服务/海外思维服务SOP执行情况",
+        "type": "SPREADSHEET_REPORT"
+      },
+      "filters": {
+        "overrides": [
+          {"key": "做工开始时间", "value": "2026-06-01", "displayValue": "2026-06-01"},
+          {"key": "做工结束时间", "value": "2026-06-05", "displayValue": "2026-06-05"},
+          {"key": "日期", "value": "2026-06-05", "displayValue": "2026-06-05"}
+        ]
+      },
+      "output": {
+        "type": "file",
+        "dir": "data/6月"
+      }
+    },
+    "first_call_monitor": {
+      "enabled": true,
+      "description": "益智海外新生首通监控",
+      "report": {
+        "id": "I2c928087018722bf22bf7d4d0187ff868fab30da",
+        "path": "分析报表/海外直播业务线/海外后端/思维-后端/服务/首通/益智海外新生首通监控",
+        "type": "SPREADSHEET_REPORT"
+      },
+      "filters": {
+        "overrides": [
+          {"key": "首次分配开始时间", "value": "2026-06-01", "displayValue": "2026-06-01"},
+          {"key": "首次分配结束时间", "value": "2026-06-05", "displayValue": "2026-06-05"}
+        ]
+      },
+      "output": {
+        "type": "file",
+        "dir": "data/6月"
+      }
+    },
+    "tingke_monitor": {
+      "enabled": true,
+      "description": "思维停课学员执行监控",
+      "report": {
+        "id": "I2c928087018b5acd5acd0fdc018c24e77b3c3525",
+        "path": "分析报表/海外直播业务线/海外后端/思维-后端/服务/停课唤醒/思维停课学员执行监控",
+        "type": "SPREADSHEET_REPORT"
+      },
+      "filters": {
+        "overrides": [
+          {"key": "开始日期", "value": "2026-06-01", "displayValue": "2026-06-01"},
+          {"key": "结束日期", "value": "2026-06-05", "displayValue": "2026-06-05"}
+        ]
+      },
+      "output": {
+        "type": "file",
+        "dir": "data/6月"
+      }
+    }
+  }
+}

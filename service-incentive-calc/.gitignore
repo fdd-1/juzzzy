@@ -1,0 +1,13 @@
+# Python
+__pycache__/
+*.pyc
+
+# 环境变量（含凭据，禁止 commit）
+.env
+
+# 数据与输出（每次重新生成）
+data/
+output/
+
+# Excel 临时文件
+~$*.xlsx
